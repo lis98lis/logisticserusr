@@ -15,6 +15,7 @@ add_action( 'wp_enqueue_scripts', 'files' );
 
 add_theme_support('menus');
 add_theme_support('elementor');
+add_theme_support('custom-logo');
 
 add_action('init', 'polylang_strings' );
 

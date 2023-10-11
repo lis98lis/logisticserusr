@@ -126,6 +126,8 @@ body {
     }
 }
 
+
+
 .calc-btn__small {
     padding: 14px 17px;
     border-radius: 10px;
@@ -144,6 +146,8 @@ body {
     background: #c52f02;
 }
 
+
+
 .calc-btn__s {
     padding: 14px 17px;
     border-radius: 10px;
@@ -158,6 +162,8 @@ body {
     transition: all 0.3s ease 0s;
 }
 
+
+
 .calc-btn__s:hover {
     background: #c52f02;
 }
@@ -167,6 +173,8 @@ body {
     font-weight: 700;
     font-variant-numeric: lining-nums proportional-nums;
 }
+
+
 
 @media (max-width: 1200px) {
     .title {
@@ -2125,6 +2133,10 @@ main {
     .modal__item-categories {
         gap: 5px;
     }
+}
+
+.link_about_us{
+    display: inline;
 }
 
 /*--------------------/Modal--------------------*/

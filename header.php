@@ -4,8 +4,8 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Название</title>
-        <meta name="description" content="Опис" />
+        <title><?php the_field('meta_tags'); ?></title>
+        <meta name="description" content="<?php the_field('description'); ?>" />
         <meta name="keywords" content="Ключевики" />
         <meta name="author" content="Автор" />
         <?php wp_head(); ?>
@@ -17,12 +17,13 @@ if (is_user_logged_in()) {
 ?>
     </head>
     <body>
+    <?php $front_id = get_option('page_on_front'); ?>
         <div class="wrapper">
             <header class="header">
                 <div class="header__body">
                     <div class="header__container">
                         <a href="/" class="header__logo">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/header/logo.svg" alt="logo" />
+                         <?php the_custom_logo(); ?>
                         </a>
 
                         <div class="header__navigation">
@@ -96,23 +97,23 @@ if (is_user_logged_in()) {
                                 class="header__action-phone phone-action"
                                 data-da=".header__container,500,2"
                             >
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/header/phone.svg" alt="phone icon" />
+                                <img src="<?php the_field('Contact_phone_image', $front_id); ?>" alt="phone icon" />
                                 <div class="phone-action__body">
-                                    <div class="phone-action__label">Безкоштовно</div>
-                                    <a href="tel:<?php echo get_field('phone_number') ?>" class="phone-action__number"
-                                        ><?php echo get_field('phone_number') ?></a
+                                    <div class="phone-action__label"> <?php the_field('name_men', $front_id); ?></div>
+                                    <a href="tel:<?php the_field('enter_number_link', $front_id); ?>" class="phone-action__number"
+                                        ><?php the_field('enter_number_telephone', $front_id); ?></a
                                     >
                                 </div>
                             </div>
                             <div data-da=".menu-body,768,98" class="header__actions-social">
-                                <a href="#">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/header/viber.svg" alt="Viber" />
+                                <a href="<?php the_field('link_viber', $front_id); ?>">
+                                    <img src="<?php the_field('Viber_image', $front_id); ?>" alt="Viber" />
                                 </a>
-                                <a href="#">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/header/telegram.svg" alt="Telegram" />
+                                <a href="<?php the_field('link_telegram', $front_id); ?>">
+                                    <img src="<?php the_field('Telegram_image', $front_id); ?>" alt="Telegram" />
                                 </a>
-                                <a href="#">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/header/whatsapp.svg" alt="Whatsapp" />
+                                <a href="<?php the_field('link_whatsapp', $front_id); ?>">
+                                    <img src="<?php the_field('image_whatsapp', $front_id); ?>" alt="Whatsapp" />
                                 </a>
                             </div>
                             <div>

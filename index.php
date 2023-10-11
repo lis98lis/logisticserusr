@@ -19,10 +19,10 @@ Template Name: Sample Page
                         <div class="hero__body">
                             <div class="hero__content">
                                 <h1 class="hero__title">
-                                    <?php echo get_field('header'); ?>
+                                    <?php  the_field('main_title'); ?>
                                 </h1>
                                 <p class="hero__description">
-                                    <?php echo get_field('subheader') ?>
+                                    <?php  the_field('main_subtitle'); ?>
                                 </p>
                                 <button class="calc-btn openModalBtn" data-modal="modal">
                                     <img
