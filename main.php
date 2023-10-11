@@ -87,7 +87,7 @@ Template Name: main Page
                                                     >Стоимость</span
                                                     >
                                                 <p class="item-transporation__info-text">
-                                                    от <?php the_sub_field('transportation_cost') ?>
+                                                     <?php the_sub_field('transportation_cost') ?>
                                                 </p>
                                             </div>
                                             <div class="item-transporation__info-body">
@@ -95,7 +95,7 @@ Template Name: main Page
                                                     >Объем</span
                                                     >
                                                 <p class="item-transporation__info-text">
-                                                    от <?php the_sub_field('shipping_volume') ?> тонн
+                                                     <?php the_sub_field('shipping_volume') ?>
                                                 </p>
                                             </div>
                                             <div class="item-transporation__info-body">
@@ -103,7 +103,7 @@ Template Name: main Page
                                                     >Сроки</span
                                                     >
                                                 <p class="item-transporation__info-text">
-                                                    от <?php the_sub_field('transportation_times') ?> дней
+                                                     <?php the_sub_field('transportation_times') ?>
                                                 </p>
                                             </div>
                                         </div>
@@ -273,14 +273,8 @@ Template Name: main Page
 
                                     <?php echo do_shortcode('[contact-form-7 id="5979a72" title="Индивидуальный расчёт стоимости - Самолёт"]'); ?>
                                     <div class="form__agreement">
-                                        Натискаючи на кнопку, я погоджуюсь на
-                                        <a href="#" class="form__agreement-link"
-                                        >обробку персональних даних</a
-                                        >
-                                        та з
-                                        <a href="#" class="form__agreement-link"
-                                        >правилами користування платформою</a
-                                        >
+                                        <?php the_field('text_before_processing'); ?>
+
                                     </div>
                                 </div>
                             </div>
@@ -299,14 +293,10 @@ Template Name: main Page
                         <div class="calculation__item" data-tab="2">
                             <div class="form__inner">
                                 <div class="form__body">
-                                    <h3 class="form__title">
-                                        Індивідуальний розрахунок вартості
+                                    <h3 class="form__title"><?php the_field('Individual_calculation'); ?>
                                     </h3>
 
-                                    <p class="form__text">
-                                        Якщо ви не знайшли відповідного для вас рішення,
-                                        наші фахівці підберуть для вас індивідуальне
-                                        Рішення.
+                                    <p class="form__text"><?php the_field('description_individual_calculation'); ?>
                                     </p>
                                     <div class="calculation__item-categories">
                                         <button
@@ -372,14 +362,8 @@ Template Name: main Page
                                     </div>
                                     <?php echo do_shortcode('[contact-form-7 id="5979a72" title="Индивидуальный расчёт стоимости - Фура"]'); ?>
                                     <div class="form__agreement">
-                                        Натискаючи на кнопку, я погоджуюся на
-                                        <a href="#" class="form__agreement-link"
-                                        >обробку персональних даних</a
-                                        >
-                                        та з
-                                        <a href="#" class="form__agreement-link"
-                                        >правилами користування платформою</a
-                                        >
+                                        <?php the_field('text_before_processing'); ?>
+
                                     </div>
                                 </div>
                             </div>
@@ -398,14 +382,10 @@ Template Name: main Page
                         <div class="calculation__item" data-tab="3">
                             <div class="form__inner">
                                 <div class="form__body">
-                                    <h3 class="form__title">
-                                        Індивідуальний розрахунок вартості
+                                    <h3 class="form__title"><?php the_field('Individual_calculation'); ?>
                                     </h3>
 
-                                    <p class="form__text">
-                                        Якщо ви не знайшли відповідного для вас рішення,
-                                        наші фахівці підберуть для вас індивідуальне
-                                        Рішення.
+                                    <p class="form__text"><?php the_field('description_individual_calculation'); ?>
                                     </p>
                                     <div class="calculation__item-categories">
                                         <button
@@ -471,14 +451,8 @@ Template Name: main Page
                                     </div>
                                     <?php echo do_shortcode('[contact-form-7 id="5979a72" title="Индивидуальный расчёт стоимости - Корабль"]'); ?>
                                     <div class="form__agreement">
-                                        Натискаючи на кнопку, я погоджуюся на
-                                        <a href="#" class="form__agreement-link"
-                                        >обробку персональних даних</a
-                                        >
-                                        та з
-                                        <a href="#" class="form__agreement-link"
-                                        >правилами користування платформою</a
-                                        >
+                                        <?php the_field('text_before_processing'); ?>
+
                                     </div>
                                 </div>
                             </div>
@@ -524,15 +498,15 @@ Template Name: main Page
                                 <div class="item-delivery__info">
                                     <div class="item-delivery__info-body">
                                         <span class="item-delivery__info-label">Вартість</span>
-                                        <p class="item-delivery__info-text">от <?php the_sub_field('shipping_cost'); ?>€</p>
+                                        <p class="item-delivery__info-text"> <?php the_sub_field('shipping_cost'); ?></p>
                                     </div>
                                     <div class="item-delivery__info-body">
                                         <span class="item-delivery__info-label">Об'ем</span>
-                                        <p class="item-delivery__info-text">от <?php the_sub_field('delivery_volume'); ?> тонн</p>
+                                        <p class="item-delivery__info-text"> <?php the_sub_field('delivery_volume'); ?> </p>
                                     </div>
                                     <div class="item-delivery__info-body">
                                         <span class="item-delivery__info-label">Терміни</span>
-                                        <p class="item-delivery__info-text">от <?php the_sub_field('delivery_time'); ?> днів</p>
+                                        <p class="item-delivery__info-text"> <?php the_sub_field('delivery_time'); ?> </p>
                                     </div>
                                 </div>
                                 <p class="item-delivery__description">
@@ -706,14 +680,8 @@ Template Name: main Page
                                 </button>
                             </form>
                             <div class="form__agreement">
-                                Натискаючи на кнопку, я погоджуюся на
-                                <a href="#" class="form__agreement-link"
-                                >обробку персональних даних</a
-                                >
-                                та з
-                                <a href="#" class="form__agreement-link"
-                                >правилами використання Платформи</a
-                                >
+                                <?php the_field('text_before_processing'); ?>
+
                             </div>
                         </div>
                     </div>
