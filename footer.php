@@ -2,7 +2,7 @@
     <div class="footer__container">
         <div class="footer__body">
             <a class="footer__logo" href="#" data-da=".footer__action-inner,425">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/footer/logo.svg" alt="логотип підвалу" />
+                <img src="<?php echo get_template_directory_uri(); ?>/img/footer/logo.svg" alt="логотип підвалу"/>
             </a>
             <div class="footer__nav">
                 <ul class="footer__list">
@@ -14,7 +14,7 @@
                     </li>
                     <li class="footer__list-item">
                         <a href="#" class="footer__list-link"
-                            >Доставка з інших країн</a
+                        >Доставка з інших країн</a
                         >
                     </li>
                     <li class="footer__list-item">
@@ -37,8 +37,8 @@
                                 </div>
                                 <button type="button" class="lang-header__arrow">
                                     <img
-                                        src="<?php echo get_template_directory_uri(); ?>/img/icons/chevron-bottom.svg"
-                                        alt="розгорнути більше"
+                                            src="<?php echo get_template_directory_uri(); ?>/img/icons/chevron-bottom.svg"
+                                            alt="розгорнути більше"
                                     />
                                 </button>
                             </div>
@@ -61,17 +61,17 @@
             <div class="footer__action-inner">
                 <div class="footer__action-phone phone-action">
                     <img
-                        src="<?php echo get_template_directory_uri(); ?>/img/header/phone.svg"
-                        alt="значок телефону"
-                        height="29"
-                        width="29"
+                            src="<?php echo get_template_directory_uri(); ?>/img/header/phone.svg"
+                            alt="значок телефону"
+                            height="29"
+                            width="29"
                     />
                     <div class="phone-action__body">
                         <div class="phone-action__label">Безкоштовно</div>
                         <a
-                            href="tel:<?php echo get_field('phone_number') ?>"
-                            class="phone-action__number footer__phone"
-                            ><?php echo get_field('phone_number') ?></a
+                                href="tel:<?php echo get_field('phone_number') ?>"
+                                class="phone-action__number footer__phone"
+                        ><?php echo get_field('phone_number') ?></a
                         >
                     </div>
                 </div>
@@ -80,8 +80,8 @@
     </div>
 </footer>
 
-        </div>
-		<!-- Подключаем файл JS скриптов -->
-        <script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
-    </body>
+</div>
+<!-- Подключаем файл JS скриптов -->
+<script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
+</body>
 </html>

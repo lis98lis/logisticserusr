@@ -1,3 +1,8 @@
+<?php
+/*
+Template Name:main page
+*/
+?>
 <?php get_header(); ?>
 <main>
                 <section class="hero">

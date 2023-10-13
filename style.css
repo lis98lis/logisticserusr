@@ -1,7 +1,7 @@
 /*
 Theme Name: LCS
 Theme URI: 
-Author: Дмитрий
+Author: Fvst1k
 Author URI: 
 Description: Тема для перевозок
 Version: 1.0
@@ -514,6 +514,34 @@ main {
     align-items: center;
     flex-wrap: wrap;
     gap: 22px;
+
+}
+.menu-burger__list .menu {
+    display: flex;
+    align-items: center;
+    max-width: 830px;
+    width: 100%;
+    justify-content: space-between;
+}
+.menu-burger__list .menu li {
+    padding: 0 5px;
+
+}
+.menu-burger__list .menu li a {
+    font-size: 15px;
+    color: #000000;
+
+}
+@media (max-width: 1336px) {
+    .menu-burger__list .menu {
+        flex-flow: column;
+        justify-content: flex-start;
+    }
+    .menu-burger__list .menu li {
+        padding: 10px 5px;
+
+    }
+
 }
 @media (max-width: 1336px) {
     .menu-burger__list {
@@ -678,6 +706,10 @@ main {
     font-size: 16px;
     font-weight: 700;
     transition: all 0.3s ease 0s;
+    line-height: 1.5;
+}
+.calc-btn img {
+    margin-right: 7px;
 }
 .calc-btn:hover {
     background: #c52f02;
