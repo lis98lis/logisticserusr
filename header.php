@@ -8,7 +8,9 @@
         <meta name="description" content="<?php the_field('description'); ?>" />
         <meta name="keywords" content="Ключевики" />
         <meta name="author" content="Автор" />
+
         <?php wp_head(); ?>
+        <?php rel_canonical(); ?>
 		<?php
 if (is_user_logged_in()) {
     // Вывод админ-бара
@@ -37,38 +39,6 @@ if (is_user_logged_in()) {
                                         wp_nav_menu( array(
                                             'menu'              => 'menu_ru'));}
                                     ?>
-
-
-
-
-<!--                                        <li class="menu-burger__item">-->
-<!--                                            <a href="#" class="menu-burger__link">Головна</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="menu-burger__item">-->
-<!--                                            <a href="#" class="menu-burger__link">Послуги</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="menu-burger__item">-->
-<!--                                            <a href="#" class="menu-burger__link"-->
-<!--                                                >Доставка з Китаю</a-->
-<!--                                            >-->
-<!--                                        </li>-->
-<!--                                        <li class="menu-burger__item">-->
-<!--                                            <a href="#" class="menu-burger__link"-->
-<!--                                                >Доставка з іншої країни</a-->
-<!--                                            >-->
-<!--                                        </li>-->
-<!--                                        <li class="menu-burger__item">-->
-<!--                                            <a href="#" class="menu-burger__link">Про компанію</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="menu-burger__item">-->
-<!--                                            <a href="#" class="menu-burger__link">ГарантіЇ</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="menu-burger__item">-->
-<!--                                            <a href="#" class="menu-burger__link">Блог</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="menu-burger__item">-->
-<!--                                            <a href="#" class="menu-burger__link">Контакти</a>-->
-<!--                                        </li>-->
                                     </ul>
                                 </nav>
                             </div>
