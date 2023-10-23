@@ -368,6 +368,12 @@ function init() {
         heroBody.style.paddingTop = `${Math.min(newPaddingTop, 370)}px`;
     }
 
+    function removeEventListeners() {
+        window.removeEventListener('resize', handleResize);
+        window.removeEventListener('scroll', handleScroll);
+        eventListenersAdded = false;
+    }
+
     function resetPaddingTop() {
         heroBody.style.paddingTop = '';
         removeEventListeners();
@@ -408,6 +414,7 @@ function init() {
 }
 
 window.addEventListener('load', init);
+
 
 // Modal
 

@@ -5,9 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title><?php the_field('meta_tags'); ?></title>
-        <meta name="description" content="<?php the_field('description'); ?>" />
+        <meta name="description" content="<?php the_field('description'); ?>"/>
         <meta name="keywords" content="Ключевики" />
         <meta name="author" content="Автор" />
+        <meta   charset="<?php bloginfo('charset'); ?>">
 
         <?php wp_head(); ?>
         <?php rel_canonical(); ?>
