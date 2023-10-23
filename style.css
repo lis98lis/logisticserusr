@@ -844,8 +844,10 @@ main {
 
 .transportation__body-bg {
     position: relative;
-    background-image: url(<?php echo get_template_directory_uri();
-    ? > . "/img/transportation/bg.png");
+   /* background-image: url(<?php bloginfo('template_url'); ?>"/img/transportation/bg.png");*/
+
+    background-image: url("../img/transportation/bg.png");
+
     background-position: center center;
     background-size: cover;
     padding-top: 60px;

@@ -84,7 +84,7 @@ Template Name: template
 
                 </div>
                 <div class="page__block">
-                    <h4 class="page__title--h4"><?php the_field('title_block_four_template'); ?></h4>
+                    <h4 class="page__title--h4"><?php the_field('title_ten_block_template'); ?></h4>
 
                     <?php
 
@@ -217,67 +217,103 @@ Template Name: template
                         ?>
                     </div>
                 </div>
+
                 <div class="page__lists">
-                    <div class="page__lists-marked">
-                        <h4 class="page__title--h4"><?php the_field('title_nine_block_mark'); ?></h4>
-                        <?php
-                        // проверяем есть ли в повторителе данные
-                        if (have_rows('repeater_marked_template')):
-                            // перебираем данные
-                            while (have_rows('repeater_marked_template')) : the_row(); ?>
-                                <ul class="page__lists-marked-list">
-                                    <li class="page__lists-marked-item">
-                                        <div class="page__lists-marked-icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                 viewBox="0 0 16 16" fill="none">
-                                                <path d="M15 3.71094L5.66667 12.289L1 7.99997" stroke="#1E434C"
-                                                      stroke-width="2" stroke-linecap="round"/>
-                                            </svg>
-                                        </div>
-                                        <div class="page__lists-marked-item-top">
-                                            <div class="page__lists-marked-content">
-                                                <?php the_sub_field('subtitle_nine_block_mark'); ?>
-                                            </div>
-                                            <p class="page__description">
-                                                <?php the_sub_field('text_nine_block_mark'); ?>
-                                            </p>
-                                        </div>
-                                    </li>
+                    <?php
 
+                    // проверяем есть ли в повторителе данные
+                    if (have_rows('Creating_block_for_bulleted_list')):
+
+                        // перебираем данные
+                        while (have_rows('Creating_block_for_bulleted_list')) : the_row(); ?>
+                            <div class="page__lists-marked">
+                                <h4 class="page__title--h4"><?php the_field('title_nine_block_mark'); ?></h4>
+                                <?php
+                                // проверяем есть ли в повторителе данные
+                                if (have_rows('repeater_marked_template')):
+                                    // перебираем данные
+                                    while (have_rows('repeater_marked_template')) : the_row(); ?>
+                                        <ul class="page__lists-marked-list">
+                                            <li class="page__lists-marked-item">
+                                                <div class="page__lists-marked-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                         viewBox="0 0 16 16" fill="none">
+                                                        <path d="M15 3.71094L5.66667 12.289L1 7.99997" stroke="#1E434C"
+                                                              stroke-width="2" stroke-linecap="round"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="page__lists-marked-item-top">
+                                                    <div class="page__lists-marked-content">
+                                                        <?php the_sub_field('subtitle_nine_block_mark'); ?>
+                                                    </div>
+                                                    <p class="page__description">
+                                                        <?php the_sub_field('text_nine_block_mark'); ?>
+                                                    </p>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    <?php endwhile;
+                                else :
+                                endif;
+                                ?>
+                            </div>
+
+                        <?php endwhile;
+
+                    else :
+
+                    endif;
+
+                    ?>
+                    <?php
+
+                    // проверяем есть ли в повторителе данные
+                    if (have_rows('Creating_block_for_numbered_list')):
+
+                        // перебираем данные
+                        while (have_rows('Creating_block_for_numbered_list')) : the_row(); ?>
+                            <div class="page__lists-numbered">
+                                <h4 class="page__title--h4"><?php the_field('title_nine_block_numbering'); ?></h4>
+                                <ul class="page__lists-numbered-list">
+                                    <?php
+                                    // проверяем есть ли в повторителе данные
+                                    if (have_rows('repeater_numbering_template')):
+
+                                        // перебираем данные
+                                        while (have_rows('repeater_numbering_template')) : the_row(); ?>
+
+                                            <li class="page__lists-numbered-item">
+                                                <div class="page__list-numbered-content">
+                                                    <?php the_sub_field('subtitle_nine_block_numbering'); ?>
+                                                </div>
+                                                <p class="page__description">
+                                                    <?php the_sub_field('text_nine_block_numbering'); ?>
+                                                </p>
+                                            </li>
+
+
+                                        <?php endwhile;
+                                    else :
+                                    endif;
+                                    ?>
                                 </ul>
-                            <?php endwhile;
-                        else :
-                        endif;
-                        ?>
-                    </div>
+                            </div>
 
-                    <div class="page__lists-numbered">
-                        <h4 class="page__title--h4"><?php the_field('title_nine_block_numbering'); ?></h4>
-                        <ul class="page__lists-numbered-list">
-                            <?php
-                            // проверяем есть ли в повторителе данные
-                            if (have_rows('repeater_numbering_template')):
+                        <?php endwhile;
 
-                                // перебираем данные
-                                while (have_rows('repeater_numbering_template')) : the_row(); ?>
+                    else :
 
-                                    <li class="page__lists-numbered-item">
-                                        <div class="page__list-numbered-content">
-                                            <?php the_sub_field('subtitle_nine_block_numbering'); ?>
-                                        </div>
-                                        <p class="page__description">
-                                            <?php the_sub_field('text_nine_block_numbering'); ?>
-                                        </p>
-                                    </li>
+                    endif;
+
+                    ?>
 
 
-                                <?php endwhile;
-                            else :
-                            endif;
-                            ?>
-                        </ul>
-                    </div>
+
+
                 </div>
+
+
                 <div class="page__steps">
                     <h4 class="page__title--h4"><?php the_field('title_ten_block_template'); ?></h4>
                     <?php
@@ -372,7 +408,6 @@ Template Name: template
                         </div>
                     </div>
                 </div>
-
                 <div class="page__info">
                     <h4 class="page__title--h4"><?php the_field('title_twelfth_block_template'); ?></h4>
                     <div class="page__info-inner page__info-inner--reverse">
@@ -445,7 +480,6 @@ Template Name: template
                         <img src="<?php the_field('right_img_block_fourteenth'); ?>" alt="img"/>
                     </div>
                 </div>
-
                 <div class="page__slider">
                     <h4 class="page__title--h4"><?php the_field('title_fifteenth_block_template'); ?></h4>
                     <div class="page__slider-swiper mySwiper">
