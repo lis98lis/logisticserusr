@@ -10,7 +10,7 @@ Template Name: template
             <div class="page__container-page">
                 <div class="page__breadcrumbs">
                     <a href="/" class="page__breadcrumbs__link">Главная</a>
-                    <img src="<?php bloginfo('template_url'); ?>/img/icons/arrow-right-red.svg" alt="arrow right red" />
+                    <img src="<?php bloginfo('template_url'); ?>/img/icons/arrow-right-red.svg" alt="arrow right red"/>
                     <span>Типовая страница</span>
                 </div>
                 <h1 class="page__title--h1"><?php the_field('title_template'); ?></h1>
@@ -19,15 +19,16 @@ Template Name: template
         <main class="page__main">
             <div class="hero-template">
                 <img
-                    src="<?php the_field('img_block_one_template'); ?>" class="hero-template__img"
-                    alt="about img"
+                        src="<?php the_field('img_block_one_template'); ?>" class="hero-template__img"
+                        alt="about img"
                 />
                 <div class="hero-template__container hero-template__body">
                     <h4 class="hero-template__title"><?php the_field('title_block_one_template'); ?></h4>
                     <p class="hero-template__description">
                         <?php the_field('text_block_one_template'); ?>
                     </p>
-                    <a href="<?php the_field('link_block_one_template'); ?>" class="calc-btn__s template_button"><?php the_field('button_block_one_template'); ?></a>
+                    <a href="<?php the_field('link_block_one_template'); ?>"
+                       class="calc-btn__s template_button"><?php the_field('button_block_one_template'); ?></a>
                 </div>
             </div>
             <div class="page__container-page">
@@ -180,65 +181,59 @@ Template Name: template
                     <h5 class="page__title--h5"><?php the_field('title_seven_block_template'); ?></h5>
                 </div>
                 <div class="page__comment">
-                    <h4 class="page__title--h4"><?php the_field('title_eight_block_template'); ?></h4>
+                    <h4 class="page__title--h4"><?php the_field('title_comment_block_template'); ?></h4>
                     <div class="page__comment-item">
                         <div class="page__comment-icon">
                             <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
                             >
                                 <path
-                                    d="M11.1 5.22675H1.5V14.8267H6.3V19.6267H11.1V5.22675Z"
-                                    stroke="#912302"
-                                    stroke-width="2"
+                                        d="M11.1 5.22675H1.5V14.8267H6.3V19.6267H11.1V5.22675Z"
+                                        stroke="#912302"
+                                        stroke-width="2"
                                 />
                                 <path
-                                    d="M22.5 5.22675H12.9V14.8267H17.7V19.6267H22.5V5.22675Z"
-                                    stroke="#912302"
-                                    stroke-width="2"
+                                        d="M22.5 5.22675H12.9V14.8267H17.7V19.6267H22.5V5.22675Z"
+                                        stroke="#912302"
+                                        stroke-width="2"
                                 />
                             </svg>
                         </div>
                         <?php
-
                         // проверяем есть ли в повторителе данные
                         if (have_rows('repeater_comment_template')):
-
                             // перебираем данные
                             while (have_rows('repeater_comment_template')) : the_row(); ?>
                                 <p class="page__comment-content">
                                     <?php the_sub_field('comment_template'); ?>
                                 </p>
-
                             <?php endwhile;
-
                         else :
-
                         endif;
-
                         ?>
-
                     </div>
                 </div>
                 <div class="page__lists">
                     <div class="page__lists-marked">
                         <h4 class="page__title--h4"><?php the_field('title_nine_block_mark'); ?></h4>
                         <?php
-
                         // проверяем есть ли в повторителе данные
                         if (have_rows('repeater_marked_template')):
-
                             // перебираем данные
                             while (have_rows('repeater_marked_template')) : the_row(); ?>
                                 <ul class="page__lists-marked-list">
                                     <li class="page__lists-marked-item">
-                                        <img
-                                                src=" <?php the_sub_field('Image_bulleted_list'); ?>"
-                                                class="page__lists-marked-icon"
-                                        />
+                                        <div class="page__lists-marked-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 viewBox="0 0 16 16" fill="none">
+                                                <path d="M15 3.71094L5.66667 12.289L1 7.99997" stroke="#1E434C"
+                                                      stroke-width="2" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
                                         <div class="page__lists-marked-item-top">
                                             <div class="page__lists-marked-content">
                                                 <?php the_sub_field('subtitle_nine_block_mark'); ?>
@@ -250,27 +245,22 @@ Template Name: template
                                     </li>
 
                                 </ul>
-
                             <?php endwhile;
-
                         else :
-
                         endif;
-
                         ?>
-
                     </div>
 
                     <div class="page__lists-numbered">
                         <h4 class="page__title--h4"><?php the_field('title_nine_block_numbering'); ?></h4>
-                        <?php
+                        <ul class="page__lists-numbered-list">
+                            <?php
+                            // проверяем есть ли в повторителе данные
+                            if (have_rows('repeater_numbering_template')):
 
-                        // проверяем есть ли в повторителе данные
-                        if (have_rows('repeater_numbering_template')):
+                                // перебираем данные
+                                while (have_rows('repeater_numbering_template')) : the_row(); ?>
 
-                            // перебираем данные
-                            while (have_rows('repeater_numbering_template')) : the_row(); ?>
-                                <ul class="page__lists-numbered-list">
                                     <li class="page__lists-numbered-item">
                                         <div class="page__list-numbered-content">
                                             <?php the_sub_field('subtitle_nine_block_numbering'); ?>
@@ -280,16 +270,12 @@ Template Name: template
                                         </p>
                                     </li>
 
-                                </ul>
 
-                            <?php endwhile;
-
-                        else :
-
-                        endif;
-
-                        ?>
-
+                                <?php endwhile;
+                            else :
+                            endif;
+                            ?>
+                        </ul>
                     </div>
                 </div>
                 <div class="page__steps">
@@ -350,27 +336,25 @@ Template Name: template
                                             <?php the_sub_field('text_eleventh_block_template'); ?>
                                         </p>
                                     </div>
-
                                 <?php endwhile;
-
                             else :
-
                             endif;
-
                             ?>
-                            <?php
+                            <ul class="page__lists-marked-list">
+                                <?php
+                                // проверяем есть ли в повторителе данные
+                                if (have_rows('repeater_eleventh_block_template_mark')):
+                                    // перебираем данные
+                                    while (have_rows('repeater_eleventh_block_template_mark')) : the_row(); ?>
 
-                            // проверяем есть ли в повторителе данные
-                            if (have_rows('repeater_eleventh_block_template_mark')):
-
-                                // перебираем данные
-                                while (have_rows('repeater_eleventh_block_template_mark')) : the_row(); ?>
-                                    <ul class="page__lists-marked-list">
                                         <li class="page__lists-marked-item">
-                                            <img
-                                                    src="<?php the_sub_field('img_eleventh_block_template_mark'); ?>"
-                                                    class="page__lists-marked-icon"
-                                            />
+                                            <div class="page__lists-marked-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                     viewBox="0 0 16 16" fill="none">
+                                                    <path d="M15 3.71094L5.66667 12.289L1 7.99997" stroke="#1E434C"
+                                                          stroke-width="2" stroke-linecap="round"/>
+                                                </svg>
+                                            </div>
                                             <div class="page__lists-marked-item-top">
                                                 <div class="page__lists-marked-content">
                                                     <?php the_sub_field('subtitle_eleventh_block_template_mark'); ?>
@@ -380,19 +364,11 @@ Template Name: template
                                                 </p>
                                             </div>
                                         </li>
-
-                                    </ul>
-
-                                <?php endwhile;
-
-                            else :
-
-                            endif;
-
-                            ?>
-
-
-
+                                    <?php endwhile;
+                                else :
+                                endif;
+                                ?>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -401,7 +377,7 @@ Template Name: template
                     <h4 class="page__title--h4"><?php the_field('title_twelfth_block_template'); ?></h4>
                     <div class="page__info-inner page__info-inner--reverse">
                         <div class="page__info-img">
-                            <img src="<?php the_field('img_twelfth_block_template'); ?>" />
+                            <img src="<?php the_field('img_twelfth_block_template'); ?>"/>
                         </div>
                         <div class="page__info-content">
                             <h4 class="page__title--h4"><?php the_field('subtitle_twelfth_block_template'); ?></h4>
@@ -420,16 +396,12 @@ Template Name: template
                                             <?php the_sub_field('text_twelfth_block_template'); ?>
                                         </p>
                                     </div>
-
                                 <?php endwhile;
-
                             else :
-
                             endif;
-
                             ?>
-                            <?php
 
+                            <?php
                             // проверяем есть ли в повторителе данные
                             if (have_rows('repeater_twelfth_block_template_mark')):
 
@@ -437,10 +409,13 @@ Template Name: template
                                 while (have_rows('repeater_twelfth_block_template_mark')) : the_row(); ?>
                                     <ul class="page__lists-marked-list">
                                         <li class="page__lists-marked-item">
-                                            <img
-                                                    src="<?php the_sub_field('img_twelfth_block_template_mark'); ?>"
-                                                    class="page__lists-marked-icon"
-                                            />
+                                            <div class="page__lists-marked-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                     viewBox="0 0 16 16" fill="none">
+                                                    <path d="M15 3.71094L5.66667 12.289L1 7.99997" stroke="#1E434C"
+                                                          stroke-width="2" stroke-linecap="round"/>
+                                                </svg>
+                                            </div>
                                             <div class="page__lists-marked-item-top">
                                                 <div class="page__lists-marked-content">
                                                     <?php the_sub_field('subtitle_twelfth_block_template_mark'); ?>
@@ -452,29 +427,22 @@ Template Name: template
                                         </li>
 
                                     </ul>
-
                                 <?php endwhile;
-
                             else :
-
                             endif;
-
                             ?>
-
-
-
                         </div>
                     </div>
                 </div>
                 <div class="page__wide-img">
                     <h4 class="page__title--h4"><?php the_field('title_thirteenth_block_template'); ?></h4>
-                    <img src="<?php the_field('img_thirteenth_block_template'); ?>" alt="img" />
+                    <img src="<?php the_field('img_thirteenth_block_template'); ?>" alt="img"/>
                 </div>
                 <div class="page__two-img">
                     <h4 class="page__title--h4"><?php the_field('title_fourteenth_block_template'); ?></h4>
                     <div class="page__two-inner">
-                        <img src="<?php the_field('left_img_block_fourteenth'); ?>" alt="img" />
-                        <img src="<?php the_field('right_img_block_fourteenth'); ?>" alt="img" />
+                        <img src="<?php the_field('left_img_block_fourteenth'); ?>" alt="img"/>
+                        <img src="<?php the_field('right_img_block_fourteenth'); ?>" alt="img"/>
                     </div>
                 </div>
 
@@ -483,35 +451,29 @@ Template Name: template
                     <div class="page__slider-swiper mySwiper">
                         <div class="swiper-wrapper">
                             <?php
-
                             // проверяем есть ли в повторителе данные
                             if (have_rows('creating_slide')):
-
                                 // перебираем данные
                                 while (have_rows('creating_slide')) : the_row(); ?>
                                     <div class="swiper-slide">
                                         <div class="page__slider-image">
-                                            <img src=" <?php the_sub_field('img_slide'); ?>" alt="img" />
+                                            <img src=" <?php the_sub_field('img_slide'); ?>" alt="img"/>
                                         </div>
                                         <p class="page__description">
                                             <?php the_sub_field('text_slide'); ?>
                                         </p>
                                     </div>
-
                                 <?php endwhile;
-
                             else :
-
                             endif;
-
                             ?>
 
                         </div>
                         <div class="swiper-button-next">
-                            <img src="<?php the_field('Right_slider_arrow'); ?>" alt="arrow right" />
+                            <img src="<?php echo get_template_directory_uri() ?>/img/icons/arrow-right-black.svg" alt="arrow right"/>
                         </div>
                         <div class="swiper-button-prev">
-                            <img src="<?php the_field('left_slider_arrow'); ?>" alt="arrow right" />
+                            <img src="<?php echo get_template_directory_uri() ?>/img/icons/arrow-left-black.svg" alt="arrow left"/>
                         </div>
                     </div>
                 </div>
@@ -525,9 +487,11 @@ Template Name: template
 
                             // перебираем данные
                             while (have_rows('Creation_social_networks_template')) : the_row(); ?>
-                                <a href="  <?php the_sub_field('Social_link_networks_template'); ?>" class="page__share-item">
+                                <a href="  <?php the_sub_field('Social_link_networks_template'); ?>"
+                                   class="page__share-item">
                                     <div class="page__share-item-icon">
-                                        <img src="  <?php the_sub_field('Social_image_networks_template'); ?>" alt="facebook" />
+                                        <img src="<?php the_sub_field('Social_image_networks_template'); ?>"
+                                             alt="facebook"/>
                                     </div>
                                     <div class="page__share-item-title">  <?php the_sub_field('Name_social_networks_template'); ?></div>
                                 </a>
@@ -547,9 +511,7 @@ Template Name: template
                     <h4 class="page__title--h4"><?php the_field('title_seventeenth_block_template'); ?></h4>
                     <div class="question-block__inner">
                         <div class="question-block__spollers">
-
                             <?php
-
                             // проверяем есть ли в повторителе данные
                             if (have_rows('Creating_question_and_answer')):
 
@@ -559,7 +521,7 @@ Template Name: template
                                         <div class="question-block__question">
                                             <?php the_sub_field('Last_block_question'); ?>
                                             <img
-                                                    src="<?php the_sub_field('Scroll_image_seventeenth'); ?>"
+                                                    src="<?php echo get_template_directory_uri() ?>/img/icons/gray-chevron-bottom.svg"
                                                     alt="chevron bottom"
                                             />
                                         </div>
@@ -569,11 +531,8 @@ Template Name: template
                                     </div>
 
                                 <?php endwhile;
-
                             else :
-
                             endif;
-
                             ?>
                         </div>
                     </div>

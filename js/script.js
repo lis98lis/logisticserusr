@@ -259,11 +259,11 @@ itemHeaders.forEach((itemHeader, index) => {
 
 document.addEventListener('DOMContentLoaded', function () {
     const questionElements = document.querySelectorAll('.question-block__question');
-    
+
     questionElements.forEach(function (questionElement) {
         questionElement.addEventListener('click', function (event) {
             const spollersElement = document.querySelector('.question-block__spollers');
-            
+
             if (spollersElement.classList.contains('one')) {
                 questionElements.forEach(function (otherQuestionElement) {
                     if (otherQuestionElement !== questionElement) {
@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 });
             }
-            
+
             questionElement.classList.toggle('active');
             if (questionElement.nextElementSibling) {
                 questionElement.nextElementSibling.style.display = questionElement.classList.contains('active') ? 'block' : 'none';

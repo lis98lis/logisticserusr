@@ -72,8 +72,7 @@
                     <div class="phone-action__body">
                         <div class="phone-action__label"> <?php the_field('name_men', $front_id); ?></div>
                         <a href="tel:<?php the_field('enter_number_link', $front_id); ?>" class="phone-action__number"
-                        ><?php the_field('enter_number_telephone', $front_id); ?></a
-                        >
+                        ><?php the_field('enter_number_telephone', $front_id); ?></a>
                     </div>
                 </div>
             </div>
@@ -83,6 +82,8 @@
 
 </div>
 <!-- Подключаем файл JS скриптов -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/swiper.js"></script>
 </body>
 </html>

@@ -9,6 +9,10 @@
         <meta name="keywords" content="Ключевики" />
         <meta name="author" content="Автор" />
         <meta   charset="<?php bloginfo('charset'); ?>">
+        <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+        />
 
         <?php wp_head(); ?>
         <?php rel_canonical(); ?>
