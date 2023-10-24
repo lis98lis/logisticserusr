@@ -38,20 +38,18 @@ Template Name: main page
         </div>
     </section>
     <section class="transportation">
+        <img class="transportation__body-img"  src="<?php echo get_template_directory_uri() ?>/img/transportation/bg.png" alt="bg"/>
         <div class="transportation__decor"></div>
         <h2 class="transportation__title transportation__container title">
             <?php the_field('shipping_title'); ?>
         </h2>
         <div class="transportation__body-bg">
+
             <div class="transportation__container">
                 <div class="transportation__body">
-
-
                     <?php
-
                     // проверяем есть ли в повторителе данные
                     if (have_rows('add_transportation')):
-
                         // перебираем данные
                         while (have_rows('add_transportation')) : the_row(); ?>
                             <div class="transportation__item item-transporation">
@@ -64,7 +62,7 @@ Template Name: main page
                                     <div class="item-transporation__header">
                                         <div class="item-transporation__top">
                                             <img
-                                                    src="<?php echo get_template_directory_uri(); ?>/img/transportation/countries/eu.png"
+                                                    src="<?php the_sub_field('flag'); ?>""
                                                     alt="county logo"
                                                     class="item-transporation__img item-transporation__sm"
                                             />
@@ -119,13 +117,9 @@ Template Name: main page
                                     </div>
                                 </div>
                             </div>
-
                         <?php endwhile;
-
                     else :
-
                     endif;
-
                     ?>
 
 
@@ -133,15 +127,14 @@ Template Name: main page
             </div>
         </div>
     </section>
+
     <section class="services">
         <div class="services__container">
             <h2 class="title"> <?php the_field('services_header'); ?></h2>
             <div class="services__body">
                 <?php
-
                 // проверяем есть ли в повторителе данные
                 if (have_rows('services')):
-
                     // перебираем данные
                     while (have_rows('services')) : the_row(); ?>
                         <div class="services__item item-services">
@@ -158,56 +151,40 @@ Template Name: main page
                                 <img src="<?php the_sub_field('Image_services'); ?>"/>
                             </div>
                         </div>
-
                     <?php endwhile;
-
                 else :
-
                 endif;
-
                 ?>
-
             </div>
 
 
             <div class="additional__services additional">
                 <div class="additional-main__title"><?php the_field('title_additional_services'); ?></div>
                 <ul class="additional__list">
-
                     <?php
-
                     // проверяем есть ли в повторителе данные
                     if (have_rows('additional_services')):
-
                         // перебираем данные
                         while (have_rows('additional_services')) : the_row(); ?>
                             <li class="additional__item">
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/icons/check.svg" alt="check"/>
                                 <span class="additional__title"><?php the_sub_field('name_additional_service') ?></span>
                             </li>
-
                         <?php endwhile;
-
                     else :
-
                     endif;
-
                     ?>
 
                 </ul>
             </div>
-
             <div class="calculation">
                 <div class="tabs-content">
                     <div class="calculation__items">
                         <div class="calculation__item" data-tab="1">
                             <div class="form__inner">
                                 <div class="form__body">
-                                    <h3 class="form__title"><?php the_field('Individual_calculation'); ?>
-                                    </h3>
-
-                                    <p class="form__text"><?php the_field('description_individual_calculation'); ?>
-                                    </p>
+                                    <h3 class="form__title"><?php the_field('Individual_calculation'); ?></h3>
+                                    <p class="form__text"><?php the_field('description_individual_calculation'); ?></p>
                                     <div class="calculation__item-categories">
                                         <button
                                                 class="calculation__item-category-btn _active-category"
@@ -225,7 +202,7 @@ Template Name: main page
                                                         fill="white"
                                                 />
                                             </svg>
-                                            Літак
+                                            Самолет
                                         </button>
                                         <button
                                                 class="calculation__item-category-btn"
@@ -267,37 +244,99 @@ Template Name: main page
                                                         fill="black"
                                                 />
                                             </svg>
-                                            Корабель
+                                            Корабль
                                         </button>
                                     </div>
+<!--                                    <form class="form__form">-->
+<!--                                        <div-->
+<!--                                                class="custom-selector"-->
+<!--                                                id="countrySelector"-->
+<!--                                        >-->
+<!--                                            <div class="selector-label">-->
+<!--                                                Страна с которой нужно доставить-->
+<!--                                            </div>-->
+<!--                                            <img-->
+<!--                                                    src="--><?php //echo get_template_directory_uri() ?><!--/img/icons/chevron-bottom.svg"-->
+<!--                                                    class="chevron-icon"-->
+<!--                                                    alt="chevron icon"-->
+<!--                                            />-->
+<!--                                            <div class="options">-->
+<!--                                                <div class="option">Страна 1</div>-->
+<!--                                                <div class="option">Страна 2</div>-->
+<!--                                                <div class="option">Страна 3</div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!---->
+<!--                                        <div-->
+<!--                                                class="custom-selector"-->
+<!--                                                id="cargoVolumeSelector"-->
+<!--                                        >-->
+<!--                                            <div class="selector-label">-->
+<!--                                                Объем груза-->
+<!--                                            </div>-->
+<!--                                            <img-->
+<!--                                                    src="--><?php //echo get_template_directory_uri() ?><!--/img/icons/chevron-bottom.svg"-->
+<!--                                                    class="chevron-icon"-->
+<!--                                                    alt="chevron icon"-->
+<!--                                            />-->
+<!--                                            <div class="options">-->
+<!--                                                <div class="option">Маленький</div>-->
+<!--                                                <div class="option">Средний</div>-->
+<!--                                                <div class="option">Большой</div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!---->
+<!--                                        <input-->
+<!--                                                type="text"-->
+<!--                                                class="form__input"-->
+<!--                                                placeholder="Ваше имя"-->
+<!--                                        />-->
+<!--                                        <input-->
+<!--                                                type="phone"-->
+<!--                                                class="form__input"-->
+<!--                                                placeholder="Телефон"-->
+<!--                                        />-->
+<!--                                        <button-->
+<!--                                                type="submit"-->
+<!--                                                class="calc-btn__small"-->
+<!--                                                style="width: 100%"-->
+<!--                                        >-->
+<!--                                            Отправить-->
+<!--                                        </button>-->
+<!--                                    </form>-->
+                                    <?php echo do_shortcode('[contact-form-7 id="5979a72" title="Индивидуальный расчёт стоимости - Самолёт"]') ?>
 
-                                    <?php echo do_shortcode('[contact-form-7 id="5979a72" title="Индивидуальный расчёт стоимости - Самолёт"]'); ?>
                                     <div class="form__agreement">
-                                        <?php the_field('text_before_processing'); ?>
-
+                                        Нажимая на кнопку, я соглашаюсь на
+                                        <a href="#" class="form__agreement-link"
+                                        >обработку персональных данных</a
+                                        >
+                                        и с
+                                        <a href="#" class="form__agreement-link"
+                                        >правилами пользования Платформой</a
+                                        >
                                     </div>
                                 </div>
                             </div>
                             <picture>
                                 <source
-                                        srcset="<?php echo get_template_directory_uri(); ?>/img/calculation/01.png"
+                                        srcset="<?php echo get_template_directory_uri() ?>/img/calculation/01.png"
                                         type="image/webp"
                                 />
                                 <img
-                                        src="<?php echo get_template_directory_uri(); ?>/img/calculation/01.png"
-                                        class="calculation__item-img"
+                                        src="<?php echo get_template_directory_uri() ?>/img/calculation/01.png"
+                                        class="calculation__item-img calculation__item-img--airplane"
                                         alt="calculation img"
                                 />
                             </picture>
+                            <img src="<?php echo get_template_directory_uri() ?>/img/calculation/cloud1.png" class="calculation__item-img--cloud1" alt="cloud1">
+                            <img src="<?php echo get_template_directory_uri() ?>/img/calculation/cloud2.png" class="calculation__item-img--cloud2" alt="cloud2">
                         </div>
                         <div class="calculation__item" data-tab="2">
                             <div class="form__inner">
                                 <div class="form__body">
-                                    <h3 class="form__title"><?php the_field('Individual_calculation'); ?>
-                                    </h3>
-
-                                    <p class="form__text"><?php the_field('description_individual_calculation'); ?>
-                                    </p>
+                                    <h3 class="form__title"><?php the_field('Individual_calculation'); ?></h3>
+                                    <p class="form__text"><?php the_field('description_individual_calculation'); ?></p>
                                     <div class="calculation__item-categories">
                                         <button
                                                 class="calculation__item-category-btn"
@@ -315,7 +354,7 @@ Template Name: main page
                                                         fill="#1E434C"
                                                 />
                                             </svg>
-                                            Літак
+                                            Самолет
                                         </button>
                                         <button
                                                 class="calculation__item-category-btn _active-category"
@@ -357,36 +396,92 @@ Template Name: main page
                                                         fill="#1E434C"
                                                 />
                                             </svg>
-                                            Корабель
+                                            Корабль
                                         </button>
                                     </div>
-                                    <?php echo do_shortcode('[contact-form-7 id="5979a72" title="Индивидуальный расчёт стоимости - Фура"]'); ?>
-                                    <div class="form__agreement">
-                                        <?php the_field('text_before_processing'); ?>
+                                    <form class="form__form">
+                                        <div
+                                                class="custom-selector"
+                                                id="countrySelector"
+                                        >
+                                                        <span class="selector-label"
+                                                        >Страна с которой нужно доставить</span
+                                                        >
+                                            <img
+                                                    src="<?php echo get_template_directory_uri() ?>/img/icons/chevron-bottom.svg"
+                                                    class="chevron-icon"
+                                                    alt="chevron icon"
+                                            />
+                                            <div class="options">
+                                                <div class="option">Страна 1</div>
+                                                <div class="option">Страна 2</div>
+                                                <div class="option">Страна 3</div>
+                                            </div>
+                                        </div>
 
+                                        <div
+                                                class="custom-selector"
+                                                id="cargoVolumeSelector"
+                                        >
+                                                        <span class="selector-label"
+                                                        >Объем груза</span
+                                                        >
+                                            <img
+                                                    src="<?php echo get_template_directory_uri() ?>/img/icons/chevron-bottom.svg"
+                                                    class="chevron-icon"
+                                                    alt="chevron icon"
+                                            />
+                                            <div class="options">
+                                                <div class="option">Маленький</div>
+                                                <div class="option">Средний</div>
+                                                <div class="option">Большой</div>
+                                            </div>
+                                        </div>
+                                        <input
+                                                type="text"
+                                                class="form__input"
+                                                placeholder="Ваше имя"
+                                        />
+                                        <input
+                                                type="phone"
+                                                class="form__input"
+                                                placeholder="Телефон"
+                                        />
+                                        <button
+                                                type="submit"
+                                                class="calc-btn__small"
+                                                style="width: 100%"
+                                        >
+                                            Отправить
+                                        </button>
+                                    </form>
+                                    <div class="form__agreement">
+                                        Нажимая на кнопку, я соглашаюсь на
+                                        <a href="#" class="form__agreement-link"
+                                        >обработку персональных данных</a
+                                        >
+                                        и с
+                                        <a href="#" class="form__agreement-link"
+                                        >правилами пользования Платформой</a
+                                        >
                                     </div>
                                 </div>
                             </div>
                             <picture>
-                                <source
-                                        srcset="<?php echo get_template_directory_uri(); ?>/img/calculation/02.png"
-                                        type="image/webp"
-                                />
-                                <img
-                                        src="<?php echo get_template_directory_uri(); ?>/img/calculation/02.png"
-                                        class="calculation__item-img"
-                                        alt="calculation img"
-                                />
+                                <source srcset="<?php echo get_template_directory_uri() ?>/img/calculation/02.png" type="image/webp" />
+                                <img src="<?php echo get_template_directory_uri() ?>/img/calculation/02.png" class="calculation__item-img calculation__item-img--car" alt="calculation img" />
                             </picture>
+                            <div class="road-container">
+                                <img src="<?php echo get_template_directory_uri() ?>/img/calculation/road.png" class="calculation__item-img--road" alt="road" />
+                                <img src="<?php echo get_template_directory_uri() ?>/img/calculation/road.png" class="calculation__item-img--road" alt="road" />
+                                <img src="<?php echo get_template_directory_uri() ?>/img/calculation/road.png" class="calculation__item-img--road" alt="road" />
+                            </div>
                         </div>
                         <div class="calculation__item" data-tab="3">
                             <div class="form__inner">
                                 <div class="form__body">
-                                    <h3 class="form__title"><?php the_field('Individual_calculation'); ?>
-                                    </h3>
-
-                                    <p class="form__text"><?php the_field('description_individual_calculation'); ?>
-                                    </p>
+                                    <h3 class="form__title"><?php the_field('Individual_calculation'); ?></h3>
+                                    <p class="form__text"><?php the_field('description_individual_calculation'); ?></p>
                                     <div class="calculation__item-categories">
                                         <button
                                                 class="calculation__item-category-btn"
@@ -404,7 +499,7 @@ Template Name: main page
                                                         fill="#1E434C"
                                                 />
                                             </svg>
-                                            Літак
+                                            Самолет
                                         </button>
                                         <button
                                                 class="calculation__item-category-btn"
@@ -446,31 +541,361 @@ Template Name: main page
                                                         fill="white"
                                                 />
                                             </svg>
-                                            Корабель
+                                            Корабль
                                         </button>
                                     </div>
-                                    <?php echo do_shortcode('[contact-form-7 id="5979a72" title="Индивидуальный расчёт стоимости - Корабль"]'); ?>
-                                    <div class="form__agreement">
-                                        <?php the_field('text_before_processing'); ?>
+                                    <form class="form__form">
+                                        <div
+                                                class="custom-selector"
+                                                id="countrySelector"
+                                        >
+                                                        <span class="selector-label"
+                                                        >Страна с которой нужно доставить</span
+                                                        >
+                                            <img
+                                                    src="<?php echo get_template_directory_uri() ?>/img/icons/chevron-bottom.svg"
+                                                    class="chevron-icon"
+                                                    alt="chevron icon"
+                                            />
+                                            <div class="options">
+                                                <div class="option">Страна 1</div>
+                                                <div class="option">Страна 2</div>
+                                                <div class="option">Страна 3</div>
+                                            </div>
+                                        </div>
 
+                                        <div
+                                                class="custom-selector"
+                                                id="cargoVolumeSelector"
+                                        >
+                                                        <span class="selector-label"
+                                                        >Объем груза</span
+                                                        >
+                                            <img
+                                                    src="<?php echo get_template_directory_uri() ?>/img/icons/chevron-bottom.svg"
+                                                    class="chevron-icon"
+                                                    alt="chevron icon"
+                                            />
+                                            <div class="options">
+                                                <div class="option">Маленький</div>
+                                                <div class="option">Средний</div>
+                                                <div class="option">Большой</div>
+                                            </div>
+                                        </div>
+                                        <input
+                                                type="text"
+                                                class="form__input"
+                                                placeholder="Ваше имя"
+                                        />
+                                        <input
+                                                type="phone"
+                                                class="form__input"
+                                                placeholder="Телефон"
+                                        />
+                                        <button
+                                                type="submit"
+                                                class="calc-btn__small"
+                                                style="width: 100%"
+                                        >
+                                            Отправить
+                                        </button>
+                                    </form>
+                                    <div class="form__agreement">
+                                        Нажимая на кнопку, я соглашаюсь на
+                                        <a href="#" class="form__agreement-link"
+                                        >обработку персональных данных</a
+                                        >
+                                        и с
+                                        <a href="#" class="form__agreement-link"
+                                        >правилами пользования Платформой</a
+                                        >
                                     </div>
                                 </div>
                             </div>
                             <picture>
-                                <source
-                                        srcset="<?php echo get_template_directory_uri(); ?>/img/calculation/03.png"
-                                        type="image/webp"
-                                />
-                                <img
-                                        src="<?php echo get_template_directory_uri(); ?>/img/calculation/03.png"
-                                        class="calculation__item-img"
-                                        alt="calculation img"
-                                />
+                                <source srcset="<?php echo get_template_directory_uri() ?>/img/calculation/03.png" type="image/webp" />
+                                <img src="<?php echo get_template_directory_uri() ?>/img/calculation/03.png" class="calculation__item-img calculation__item-img--ship" alt="calculation img" />
                             </picture>
+                            <img src="<?php echo get_template_directory_uri() ?>/img/calculation/waves.png" class="calculation__item-img--waves" alt="waves" />
                         </div>
                     </div>
                 </div>
             </div>
+
+<!--            <div class="calculation">-->
+<!--                <div class="tabs-content">-->
+<!--                    <div class="calculation__items">-->
+<!--                        <div class="calculation__item" data-tab="1">-->
+<!--                            <div class="form__inner">-->
+<!--                                <div class="form__body">-->
+<!--                                    <h3 class="form__title">--><?php //the_field('Individual_calculation'); ?>
+<!--                                    </h3>-->
+<!---->
+<!--                                    <p class="form__text">--><?php //the_field('description_individual_calculation'); ?>
+<!--                                    </p>-->
+<!--                                    <div class="calculation__item-categories">-->
+<!--                                        <button-->
+<!--                                                class="calculation__item-category-btn _active-category"-->
+<!--                                                data-tab="1"-->
+<!--                                        >-->
+<!--                                            <svg-->
+<!--                                                    xmlns="http://www.w3.org/2000/svg"-->
+<!--                                                    width="44"-->
+<!--                                                    height="44"-->
+<!--                                                    viewBox="0 0 44 44"-->
+<!--                                                    fill="none"-->
+<!--                                            >-->
+<!--                                                <path-->
+<!--                                                        d="M1.91565 10.131H5.67839C6.22668 10.131 6.75346 10.3735 7.11361 10.7979L11.3548 15.7369C11.6182 16.0456 11.9998 16.222 12.403 16.222H17.3913L12.6771 10.1916C12.2148 9.59627 12.1234 8.80251 12.446 8.11348C12.7685 7.42996 13.4296 7 14.1714 7H17.7568C18.8157 7 19.8156 7.41342 20.5789 8.16309L28.7817 16.222H37.0436C38.6347 16.222 40.129 16.8559 41.2578 18.0135C42.4028 19.1986 43.021 20.7641 42.9995 22.4233C42.9672 24.8266 41.0213 26.778 38.6615 26.778H28.7817L20.5789 34.8369C19.8156 35.5866 18.8157 36 17.7568 36H14.1714C13.4296 36 12.7685 35.5756 12.446 34.8865C12.1234 34.1975 12.2148 33.4037 12.6771 32.8084L17.3913 26.7725H11.258C9.24762 26.7725 7.36625 25.6645 6.36106 23.8785L0.260033 13.08C-0.0839882 12.4682 -0.0893631 11.7295 0.260033 11.1177C0.604057 10.5003 1.2276 10.1365 1.91565 10.1365V10.131ZM19.0899 9.75062C18.7297 9.39783 18.2567 9.19939 17.7568 9.19939H14.6606L20.1435 16.2165H25.6747L19.0899 9.75062ZM8.21556 22.7706C8.8391 23.8785 10.0056 24.5676 11.2526 24.5676H19.106L19.7833 23.6966C20.1542 23.2226 20.8315 23.1454 21.2938 23.5258C21.7561 23.9061 21.8313 24.6006 21.4604 25.0747L14.6498 33.7896H17.7461C18.246 33.7896 18.719 33.5967 19.0791 33.2384L27.5937 24.8707C27.7926 24.6723 28.0614 24.5621 28.3355 24.5621H38.6508C39.8441 24.5621 40.8224 23.5864 40.8386 22.3847C40.8547 21.3209 40.4569 20.3176 39.7259 19.5624C39.0056 18.8238 38.0488 18.4159 37.0328 18.4159H12.3868C11.3709 18.4159 10.3979 17.9694 9.72603 17.1811L5.55476 12.3248H2.30805L8.19943 22.7596L8.21556 22.7706Z"-->
+<!--                                                        fill="white"-->
+<!--                                                />-->
+<!--                                            </svg>-->
+<!--                                            Літак-->
+<!--                                        </button>-->
+<!--                                        <button-->
+<!--                                                class="calculation__item-category-btn"-->
+<!--                                                data-tab="2"-->
+<!--                                        >-->
+<!--                                            <svg-->
+<!--                                                    xmlns="http://www.w3.org/2000/svg"-->
+<!--                                                    width="44"-->
+<!--                                                    height="44"-->
+<!--                                                    viewBox="0 0 44 44"-->
+<!--                                                    fill="none"-->
+<!--                                            >-->
+<!--                                                <path-->
+<!--                                                        fill-rule="evenodd"-->
+<!--                                                        clip-rule="evenodd"-->
+<!--                                                        d="M19.2536 32.2055H21.2977V30.2416H18.4411C18.8523 30.8289 19.1297 31.4993 19.2536 32.2055ZM18.1799 19.7157C18.294 19.7125 18.4076 19.7323 18.5139 19.7738C18.6203 19.8153 18.7172 19.8777 18.799 19.9573C18.8808 20.0369 18.9459 20.1321 18.9903 20.2373C19.0347 20.3424 19.0575 20.4554 19.0575 20.5696C19.0575 20.6837 19.0347 20.7967 18.9903 20.9019C18.9459 21.007 18.8808 21.1022 18.799 21.1818C18.7172 21.2614 18.6203 21.3238 18.5139 21.3653C18.4076 21.4068 18.294 21.4266 18.1799 21.4235H15.7238C15.6097 21.4266 15.4961 21.4068 15.3898 21.3653C15.2834 21.3238 15.1865 21.2614 15.1047 21.1818C15.0229 21.1022 14.9578 21.007 14.9134 20.9019C14.869 20.7967 14.8462 20.6837 14.8462 20.5696C14.8462 20.4554 14.869 20.3424 14.9134 20.2373C14.9578 20.1321 15.0229 20.0369 15.1047 19.9573C15.1865 19.8777 15.2834 19.8153 15.3898 19.7738C15.4961 19.7323 15.6097 19.7125 15.7238 19.7157H18.1799ZM18.1799 15.8649C18.4065 15.8649 18.6237 15.9549 18.7839 16.1151C18.9441 16.2753 19.0341 16.4926 19.0341 16.7192C19.0341 16.9457 18.9441 17.163 18.7839 17.3232C18.6237 17.4834 18.4065 17.5734 18.1799 17.5734H10.0587C9.83218 17.5734 9.6149 17.4834 9.45471 17.3232C9.29451 17.163 9.20451 16.9457 9.20451 16.7192C9.20451 16.4926 9.29451 16.2753 9.45471 16.1151C9.6149 15.9549 9.83218 15.8649 10.0587 15.8649H18.1799ZM18.1799 12.0142C18.4065 12.0142 18.6237 12.1042 18.7839 12.2644C18.9441 12.4246 19.0341 12.6419 19.0341 12.8684C19.0341 13.095 18.9441 13.3123 18.7839 13.4725C18.6237 13.6327 18.4065 13.7227 18.1799 13.7227H5.57007C5.34352 13.7227 5.12625 13.6327 4.96605 13.4725C4.80585 13.3123 4.71585 13.095 4.71585 12.8684C4.71585 12.6419 4.80585 12.4246 4.96605 12.2644C5.12625 12.1042 5.34352 12.0142 5.57007 12.0142H18.1799ZM42.9997 30.9303C43.005 31.322 42.932 31.7108 42.7851 32.0739C42.6382 32.4371 42.4204 32.7673 42.1444 33.0453C41.8683 33.3232 41.5396 33.5433 41.1775 33.6927C40.8153 33.8421 40.4271 33.9177 40.0353 33.9152H35.9433C35.7419 35.0552 35.1454 36.0878 34.2585 36.8318C33.3716 37.5758 32.2509 37.9835 31.0933 37.9835C29.9357 37.9835 28.815 37.5758 27.9281 36.8318C27.0412 36.0878 26.4447 35.0552 26.2433 33.9152H19.2536C19.0522 35.0552 18.4557 36.0878 17.5688 36.8318C16.6819 37.5758 15.5613 37.9835 14.4036 37.9835C13.246 37.9835 12.1254 37.5758 11.2384 36.8318C10.3515 36.0878 9.75502 35.0552 9.55364 33.9152H3.82313C3.59669 33.9152 3.37951 33.8253 3.21933 33.6652C3.05915 33.5052 2.96908 33.2881 2.96891 33.0616V30.2378H0.855503C0.630023 30.2376 0.413828 30.148 0.25439 29.9885C0.0949516 29.8291 0.00530476 29.6129 0.00513478 29.3874L2.41654e-07 7.85352C-8.41521e-05 7.7414 0.0219371 7.63037 0.0648035 7.52677C0.10767 7.42317 0.170541 7.32904 0.249819 7.24976C0.329098 7.17048 0.423229 7.10761 0.526828 7.06474C0.630427 7.02188 0.74146 6.99985 0.853577 6.99994H22.1519C22.264 6.99985 22.3751 7.02188 22.4787 7.06474C22.5823 7.10761 22.6764 7.17048 22.7557 7.24976C22.835 7.32904 22.8978 7.42317 22.9407 7.52677C22.9836 7.63037 23.0056 7.7414 23.0055 7.85352V9.98361H32.5322C33.056 9.98007 33.5712 10.1173 34.0239 10.3809C34.4767 10.6445 34.8503 11.0248 35.1058 11.4822L38.9943 18.2922C39.0346 18.3646 39.0821 18.4328 39.1362 18.4956C39.1918 18.5579 39.2535 18.6144 39.3204 18.6644L41.772 20.5429C42.1358 20.8137 42.4307 21.1664 42.6329 21.5723C42.835 21.9783 42.9387 22.4262 42.9356 22.8797L42.9997 30.9303ZM41.2894 29.5183H38.5072C38.3951 29.5183 38.284 29.4962 38.1804 29.4533C38.0768 29.4104 37.9827 29.3474 37.9034 29.2681C37.8242 29.1888 37.7613 29.0946 37.7184 28.991C37.6756 28.8873 37.6536 28.7763 37.6537 28.6641V25.6509C37.6536 25.5388 37.6756 25.4277 37.7184 25.3241C37.7613 25.2204 37.8242 25.1263 37.9034 25.0469C37.9827 24.9676 38.0768 24.9047 38.1804 24.8617C38.284 24.8188 38.3951 24.7967 38.5072 24.7967H41.2451L41.2329 22.8867C41.2348 22.6946 41.191 22.5048 41.1052 22.3328C41.0194 22.1609 40.894 22.0118 40.7394 21.8977L39.5341 20.9749H27.3607C27.2484 20.9749 27.1373 20.9529 27.0336 20.91C26.9299 20.8671 26.8356 20.8042 26.7562 20.7249C26.6768 20.6456 26.6139 20.5514 26.5709 20.4477C26.5279 20.344 26.5058 20.2329 26.5058 20.1206V14.9607C26.5058 14.7341 26.5958 14.5168 26.756 14.3566C26.9162 14.1964 27.1335 14.1064 27.36 14.1064H34.6437L33.6258 12.3229C33.5197 12.1274 33.3617 11.965 33.1692 11.8537C32.9767 11.7424 32.7571 11.6864 32.5348 11.692H23.0061V32.2055H26.2433C26.4447 31.0655 27.0412 30.0329 27.9281 29.2889C28.815 28.5449 29.9357 28.1372 31.0933 28.1372C32.2509 28.1372 33.3716 28.5449 34.2585 29.2889C35.1454 30.0329 35.7419 31.0655 35.9433 32.2055H40.0353C40.2025 32.2088 40.3685 32.1783 40.5235 32.1156C40.6785 32.053 40.8192 31.9596 40.9371 31.8411C41.0549 31.7225 41.1475 31.5813 41.2093 31.426C41.2711 31.2707 41.3007 31.1044 41.2964 30.9373L41.2875 29.5158L41.2894 29.5183ZM41.2573 26.5077H39.3608V27.8099H41.2765L41.2554 26.5077H41.2573ZM31.0933 34.0352C31.2864 34.0352 31.4752 33.978 31.6357 33.8707C31.7962 33.7634 31.9214 33.6109 31.9952 33.4325C32.0691 33.2541 32.0884 33.0578 32.0507 32.8684C32.0129 32.679 31.9199 32.5051 31.7833 32.3686C31.6467 32.2321 31.4727 32.1392 31.2833 32.1016C31.094 32.064 30.8977 32.0834 30.7193 32.1574C30.5409 32.2314 30.3885 32.3566 30.2813 32.5172C30.1742 32.6778 30.117 32.8666 30.1171 33.0597C30.1173 33.3185 30.2202 33.5666 30.4033 33.7495C30.5863 33.9325 30.8345 34.0352 31.0933 34.0352ZM14.403 34.0352C14.5961 34.0352 14.7848 33.978 14.9454 33.8707C15.1059 33.7634 15.231 33.6109 15.3049 33.4325C15.3788 33.2541 15.3981 33.0578 15.3603 32.8684C15.3226 32.679 15.2296 32.5051 15.093 32.3686C14.9564 32.2321 14.7824 32.1392 14.593 32.1016C14.4036 32.064 14.2073 32.0834 14.029 32.1574C13.8506 32.2314 13.6982 32.3566 13.591 32.5172C13.4838 32.6778 13.4267 32.8666 13.4268 33.0597C13.427 33.3185 13.5299 33.5666 13.713 33.7495C13.896 33.9325 14.1442 34.0352 14.403 34.0352ZM16.3444 28.5332H21.2977V8.70774H1.70972V28.539H12.4603C13.0741 28.2766 13.7348 28.1414 14.4023 28.1414C15.0699 28.1414 15.7305 28.2766 16.3444 28.539V28.5332ZM4.67734 30.2416V32.2055H9.55493C9.67867 31.4994 9.9558 30.829 10.3668 30.2416H4.67734ZM16.6768 30.7859C16.1508 30.2596 15.4586 29.9321 14.7181 29.859C13.9777 29.786 13.2348 29.9719 12.6161 30.3852C11.9973 30.7984 11.5411 31.4135 11.325 32.1255C11.1089 32.8374 11.1463 33.6023 11.431 34.2898C11.7156 34.9772 12.2298 35.5447 12.886 35.8955C13.5422 36.2464 14.2997 36.3588 15.0294 36.2137C15.7592 36.0686 16.4161 35.675 16.8882 35.0999C17.3602 34.5248 17.6183 33.8038 17.6183 33.0597C17.619 32.6374 17.5361 32.219 17.3745 31.8288C17.213 31.4386 16.9759 31.0841 16.6768 30.7859ZM35.6192 15.8168H28.2142V19.269H37.5953C37.5677 19.226 37.5407 19.1811 37.5144 19.1355L35.6192 15.8168ZM33.3672 30.7859C32.8412 30.2603 32.1493 29.9333 31.4094 29.8606C30.6694 29.788 29.9271 29.9741 29.309 30.3873C28.6909 30.8005 28.2351 31.4153 28.0194 32.1268C27.8037 32.8384 27.8413 33.6027 28.1259 34.2896C28.4106 34.9765 28.9245 35.5435 29.5803 35.8939C30.236 36.2444 30.993 36.3567 31.7222 36.2116C32.4515 36.0666 33.1079 35.6732 33.5796 35.0985C34.0513 34.5237 34.3092 33.8032 34.3093 33.0597C34.3099 32.6373 34.227 32.2189 34.0653 31.8287C33.9036 31.4385 33.6663 31.084 33.3672 30.7859Z"-->
+<!--                                                        fill="black"-->
+<!--                                                />-->
+<!--                                            </svg>-->
+<!--                                            Фура-->
+<!--                                        </button>-->
+<!--                                        <button-->
+<!--                                                class="calculation__item-category-btn"-->
+<!--                                                data-tab="3"-->
+<!--                                        >-->
+<!--                                            <svg-->
+<!--                                                    xmlns="http://www.w3.org/2000/svg"-->
+<!--                                                    width="44"-->
+<!--                                                    height="44"-->
+<!--                                                    viewBox="0 0 44 44"-->
+<!--                                                    fill="none"-->
+<!--                                            >-->
+<!--                                                <path-->
+<!--                                                        d="M43.8265 15.3197C43.6401 15.0455 43.3302 14.881 42.9988 14.881H39.2205V12.367C39.2205 11.8143 38.7724 11.3651 38.2188 11.3651H36.5363V7.00182C36.5363 6.44867 36.0877 5.99994 35.5347 5.99994H23.7978C23.2452 5.99994 22.7966 6.44819 22.7966 7.00182V11.3651H20.6139C20.0609 11.3651 19.6123 11.8138 19.6123 12.367V15.4575L18.1934 11.9879C18.0399 11.6116 17.6738 11.3651 17.2671 11.3651H15.8563V8.65081C15.8563 8.09813 15.4077 7.64892 14.8547 7.64892H10.908C10.355 7.64892 9.90684 8.09765 9.90684 8.65081V11.3651H8.49706C8.09038 11.3651 7.72423 11.6116 7.57071 11.9884L5.63315 16.7307H2.68677C2.35732 16.7307 2.04838 16.8929 1.86197 17.1647C1.6746 17.436 1.6336 17.7822 1.75231 18.0903L6.50038 30.4905C6.69776 31.007 7.27702 31.2654 7.79288 31.0675C8.30969 30.8697 8.56762 30.2907 8.37024 29.7743L5.88202 23.2756H35.5356C36.0882 23.2756 36.5373 22.8279 36.5373 22.2742C36.5373 21.7206 36.0887 21.2728 35.5356 21.2728H5.11443L4.14184 18.7331H35.866C36.2708 18.7331 36.635 18.4894 36.7905 18.1151L37.3015 16.8838H41.5252L36.2522 30.2102C36.0486 30.7242 36.3008 31.3065 36.8148 31.5101C36.9359 31.5578 37.0603 31.5802 37.1828 31.5802C37.5814 31.5802 37.9585 31.3403 38.1139 30.9469L43.9285 16.2505C44.0515 15.943 44.0129 15.5939 43.8265 15.3197ZM11.9097 9.65222H13.8539V11.3651H11.9097V9.65222ZM7.79574 16.7307L9.16929 13.3684H16.5948L17.9693 16.7307H7.79574ZM25.4817 16.7307H21.6156V13.3684H25.4817V16.7307ZM24.7994 11.3651V8.00275H28.6655V11.3651H24.7994ZM31.3501 16.7307H27.4841V13.3684H31.3501V16.7307ZM30.6679 11.3651V8.00275H34.533V11.3651H30.6679ZM37.2181 14.881H36.6331C36.2279 14.881 35.8632 15.1251 35.7087 15.499L35.1976 16.7307H33.353V13.3684H37.2181V14.881Z"-->
+<!--                                                        fill="black"-->
+<!--                                                />-->
+<!--                                                <path-->
+<!--                                                        d="M43.1905 32.8315C42.6799 32.6178 42.0935 32.8577 41.8794 33.3674C41.3879 34.5396 40.0925 35.3149 38.6718 35.2711C37.2486 35.2372 36.0081 34.4156 35.5852 33.2273C35.3993 32.7056 34.8262 32.4338 34.306 32.6197C34.0619 32.7065 33.8765 32.8796 33.7625 33.0913C33.7501 33.1057 33.7354 33.1285 33.7177 33.171C33.2271 34.3422 31.9299 35.1161 30.5106 35.0741C29.0874 35.0408 27.8474 34.2196 27.4245 33.0317C27.423 33.0279 27.4216 33.026 27.4207 33.0222C27.3291 32.768 27.1379 32.5501 26.8695 32.4366C26.3594 32.2225 25.7725 32.4624 25.5584 32.9721C25.0659 34.1447 23.7696 34.9244 22.3494 34.8767C20.9272 34.8438 19.6871 34.0222 19.2642 32.8334C19.0788 32.3126 18.5067 32.0394 17.9851 32.2258C17.761 32.3055 17.587 32.459 17.4716 32.6479C17.4492 32.6703 17.4249 32.7118 17.3977 32.7771C16.9062 33.9502 15.5994 34.7279 14.1891 34.6798C12.7665 34.6469 11.5259 33.8257 11.103 32.6369C11.1011 32.6321 11.0992 32.6302 11.0973 32.6259C11.0053 32.3727 10.8146 32.1567 10.5467 32.0437C10.037 31.8296 9.4501 32.0704 9.23604 32.5801C8.74545 33.7518 7.44341 34.5253 6.02934 34.4843C4.60525 34.4504 3.36567 33.6292 2.94469 32.4414C2.76019 31.9197 2.1876 31.6465 1.66697 31.832C1.1454 32.017 0.872689 32.5892 1.0572 33.1104C1.75374 35.076 3.7323 36.4332 5.98214 36.4871C6.02696 36.488 6.07177 36.4885 6.11611 36.4885C7.66797 36.4885 9.11398 35.8614 10.108 34.8257C11.0711 35.9406 12.5367 36.6454 14.141 36.6831C14.1882 36.684 14.2339 36.6845 14.2806 36.6845C15.8306 36.6845 17.2752 36.0579 18.2688 35.0231C19.2318 36.138 20.6974 36.8428 22.3017 36.881C22.347 36.8819 22.3918 36.8824 22.4366 36.8824C23.988 36.8824 25.434 36.2553 26.4285 35.2201C27.3916 36.335 28.8576 37.0398 30.4634 37.0779C30.5082 37.0789 30.553 37.0793 30.5973 37.0793C32.1497 37.0793 33.5957 36.4523 34.5892 35.417C35.5523 36.5314 37.0179 37.2362 38.6231 37.2748C38.6679 37.2758 38.7128 37.2763 38.7571 37.2763C40.9473 37.2763 42.9326 36.0302 43.724 34.1438C43.94 33.6326 43.7002 33.0456 43.1905 32.8315Z"-->
+<!--                                                        fill="black"-->
+<!--                                                />-->
+<!--                                            </svg>-->
+<!--                                            Корабель-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+<!---->
+<!--                                    --><?php //echo do_shortcode('[contact-form-7 id="5979a72" title="Индивидуальный расчёт стоимости - Самолёт"]'); ?>
+<!--                                    <div class="form__agreement">-->
+<!--                                        --><?php //the_field('text_before_processing'); ?>
+<!---->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <picture>-->
+<!--                                <source-->
+<!--                                        srcset="--><?php //echo get_template_directory_uri(); ?><!--/img/calculation/01.png"-->
+<!--                                        type="image/webp"-->
+<!--                                />-->
+<!--                                <img-->
+<!--                                        src="--><?php //echo get_template_directory_uri(); ?><!--/img/calculation/01.png"-->
+<!--                                        class="calculation__item-img"-->
+<!--                                        alt="calculation img"-->
+<!--                                />-->
+<!--                            </picture>-->
+<!--                        </div>-->
+<!--                        <div class="calculation__item" data-tab="2">-->
+<!--                            <div class="form__inner">-->
+<!--                                <div class="form__body">-->
+<!--                                    <h3 class="form__title">--><?php //the_field('Individual_calculation'); ?>
+<!--                                    </h3>-->
+<!---->
+<!--                                    <p class="form__text">--><?php //the_field('description_individual_calculation'); ?>
+<!--                                    </p>-->
+<!--                                    <div class="calculation__item-categories">-->
+<!--                                        <button-->
+<!--                                                class="calculation__item-category-btn"-->
+<!--                                                data-tab="1"-->
+<!--                                        >-->
+<!--                                            <svg-->
+<!--                                                    xmlns="http://www.w3.org/2000/svg"-->
+<!--                                                    width="44"-->
+<!--                                                    height="43"-->
+<!--                                                    viewBox="0 0 44 43"-->
+<!--                                                    fill="none"-->
+<!--                                            >-->
+<!--                                                <path-->
+<!--                                                        d="M1.91565 9.63096H5.67839C6.22668 9.63096 6.75346 9.8735 7.11361 10.2979L11.3548 15.2369C11.6182 15.5456 11.9998 15.722 12.403 15.722H17.3913L12.6771 9.6916C12.2148 9.09627 12.1234 8.30251 12.446 7.61348C12.7685 6.92996 13.4296 6.5 14.1714 6.5H17.7568C18.8157 6.5 19.8156 6.91342 20.5789 7.66309L28.7817 15.722H37.0436C38.6347 15.722 40.129 16.3559 41.2578 17.5135C42.4028 18.6986 43.021 20.2641 42.9995 21.9233C42.9672 24.3266 41.0213 26.278 38.6615 26.278H28.7817L20.5789 34.3369C19.8156 35.0866 18.8157 35.5 17.7568 35.5H14.1714C13.4296 35.5 12.7685 35.0756 12.446 34.3865C12.1234 33.6975 12.2148 32.9037 12.6771 32.3084L17.3913 26.2725H11.258C9.24762 26.2725 7.36625 25.1645 6.36106 23.3785L0.260033 12.58C-0.0839882 11.9682 -0.0893631 11.2295 0.260033 10.6177C0.604057 10.0003 1.2276 9.63648 1.91565 9.63648V9.63096ZM19.0899 9.25062C18.7297 8.89783 18.2567 8.69939 17.7568 8.69939H14.6606L20.1435 15.7165H25.6747L19.0899 9.25062ZM8.21556 22.2706C8.8391 23.3785 10.0056 24.0676 11.2526 24.0676H19.106L19.7833 23.1966C20.1542 22.7226 20.8315 22.6454 21.2938 23.0258C21.7561 23.4061 21.8313 24.1006 21.4604 24.5747L14.6498 33.2896H17.7461C18.246 33.2896 18.719 33.0967 19.0791 32.7384L27.5937 24.3707C27.7926 24.1723 28.0614 24.0621 28.3355 24.0621H38.6508C39.8441 24.0621 40.8224 23.0864 40.8386 21.8847C40.8547 20.8209 40.4569 19.8176 39.7259 19.0624C39.0056 18.3238 38.0488 17.9159 37.0328 17.9159H12.3868C11.3709 17.9159 10.3979 17.4694 9.72603 16.6811L5.55476 11.8248H2.30805L8.19943 22.2596L8.21556 22.2706Z"-->
+<!--                                                        fill="#1E434C"-->
+<!--                                                />-->
+<!--                                            </svg>-->
+<!--                                            Літак-->
+<!--                                        </button>-->
+<!--                                        <button-->
+<!--                                                class="calculation__item-category-btn _active-category"-->
+<!--                                                data-tab="2"-->
+<!--                                        >-->
+<!--                                            <svg-->
+<!--                                                    xmlns="http://www.w3.org/2000/svg"-->
+<!--                                                    width="44"-->
+<!--                                                    height="43"-->
+<!--                                                    viewBox="0 0 44 43"-->
+<!--                                                    fill="none"-->
+<!--                                            >-->
+<!--                                                <path-->
+<!--                                                        fill-rule="evenodd"-->
+<!--                                                        clip-rule="evenodd"-->
+<!--                                                        d="M19.2536 31.7055H21.2977V29.7416H18.4411C18.8523 30.3289 19.1297 30.9993 19.2536 31.7055ZM18.1799 19.2157C18.294 19.2125 18.4076 19.2323 18.5139 19.2738C18.6203 19.3153 18.7172 19.3777 18.799 19.4573C18.8808 19.5369 18.9459 19.6321 18.9903 19.7373C19.0347 19.8424 19.0575 19.9554 19.0575 20.0696C19.0575 20.1837 19.0347 20.2967 18.9903 20.4019C18.9459 20.507 18.8808 20.6022 18.799 20.6818C18.7172 20.7614 18.6203 20.8238 18.5139 20.8653C18.4076 20.9068 18.294 20.9266 18.1799 20.9235H15.7238C15.6097 20.9266 15.4961 20.9068 15.3898 20.8653C15.2834 20.8238 15.1865 20.7614 15.1047 20.6818C15.0229 20.6022 14.9578 20.507 14.9134 20.4019C14.869 20.2967 14.8462 20.1837 14.8462 20.0696C14.8462 19.9554 14.869 19.8424 14.9134 19.7373C14.9578 19.6321 15.0229 19.5369 15.1047 19.4573C15.1865 19.3777 15.2834 19.3153 15.3898 19.2738C15.4961 19.2323 15.6097 19.2125 15.7238 19.2157H18.1799ZM18.1799 15.3649C18.4065 15.3649 18.6237 15.4549 18.7839 15.6151C18.9441 15.7753 19.0341 15.9926 19.0341 16.2192C19.0341 16.4457 18.9441 16.663 18.7839 16.8232C18.6237 16.9834 18.4065 17.0734 18.1799 17.0734H10.0587C9.83218 17.0734 9.6149 16.9834 9.45471 16.8232C9.29451 16.663 9.20451 16.4457 9.20451 16.2192C9.20451 15.9926 9.29451 15.7753 9.45471 15.6151C9.6149 15.4549 9.83218 15.3649 10.0587 15.3649H18.1799ZM18.1799 11.5142C18.4065 11.5142 18.6237 11.6042 18.7839 11.7644C18.9441 11.9246 19.0341 12.1419 19.0341 12.3684C19.0341 12.595 18.9441 12.8123 18.7839 12.9725C18.6237 13.1327 18.4065 13.2227 18.1799 13.2227H5.57007C5.34352 13.2227 5.12625 13.1327 4.96605 12.9725C4.80585 12.8123 4.71585 12.595 4.71585 12.3684C4.71585 12.1419 4.80585 11.9246 4.96605 11.7644C5.12625 11.6042 5.34352 11.5142 5.57007 11.5142H18.1799ZM42.9997 30.4303C43.005 30.822 42.932 31.2108 42.7851 31.5739C42.6382 31.9371 42.4204 32.2673 42.1444 32.5453C41.8683 32.8232 41.5396 33.0433 41.1775 33.1927C40.8153 33.3421 40.4271 33.4177 40.0353 33.4152H35.9433C35.7419 34.5552 35.1454 35.5878 34.2585 36.3318C33.3716 37.0758 32.2509 37.4835 31.0933 37.4835C29.9357 37.4835 28.815 37.0758 27.9281 36.3318C27.0412 35.5878 26.4447 34.5552 26.2433 33.4152H19.2536C19.0522 34.5552 18.4557 35.5878 17.5688 36.3318C16.6819 37.0758 15.5613 37.4835 14.4036 37.4835C13.246 37.4835 12.1254 37.0758 11.2384 36.3318C10.3515 35.5878 9.75502 34.5552 9.55364 33.4152H3.82313C3.59669 33.4152 3.37951 33.3253 3.21933 33.1652C3.05915 33.0052 2.96908 32.7881 2.96891 32.5616V29.7378H0.855503C0.630023 29.7376 0.413828 29.648 0.25439 29.4885C0.0949516 29.3291 0.00530476 29.1129 0.00513478 28.8874L2.41654e-07 7.35352C-8.41521e-05 7.2414 0.0219371 7.13037 0.0648035 7.02677C0.10767 6.92317 0.170541 6.82904 0.249819 6.74976C0.329098 6.67048 0.423229 6.60761 0.526828 6.56474C0.630427 6.52188 0.74146 6.49985 0.853577 6.49994H22.1519C22.264 6.49985 22.3751 6.52188 22.4787 6.56474C22.5823 6.60761 22.6764 6.67048 22.7557 6.74976C22.835 6.82904 22.8978 6.92317 22.9407 7.02677C22.9836 7.13037 23.0056 7.2414 23.0055 7.35352V9.48361H32.5322C33.056 9.48007 33.5712 9.61727 34.0239 9.88088C34.4767 10.1445 34.8503 10.5248 35.1058 10.9822L38.9943 17.7922C39.0346 17.8646 39.0821 17.9328 39.1362 17.9956C39.1918 18.0579 39.2535 18.1144 39.3204 18.1644L41.772 20.0429C42.1358 20.3137 42.4307 20.6664 42.6329 21.0723C42.835 21.4783 42.9387 21.9262 42.9356 22.3797L42.9997 30.4303ZM41.2894 29.0183H38.5072C38.3951 29.0183 38.284 28.9962 38.1804 28.9533C38.0768 28.9104 37.9827 28.8474 37.9034 28.7681C37.8242 28.6888 37.7613 28.5946 37.7184 28.491C37.6756 28.3873 37.6536 28.2763 37.6537 28.1641V25.1509C37.6536 25.0388 37.6756 24.9277 37.7184 24.8241C37.7613 24.7204 37.8242 24.6263 37.9034 24.5469C37.9827 24.4676 38.0768 24.4047 38.1804 24.3617C38.284 24.3188 38.3951 24.2967 38.5072 24.2967H41.2451L41.2329 22.3867C41.2348 22.1946 41.191 22.0048 41.1052 21.8328C41.0194 21.6609 40.894 21.5118 40.7394 21.3977L39.5341 20.4749H27.3607C27.2484 20.4749 27.1373 20.4529 27.0336 20.41C26.9299 20.3671 26.8356 20.3042 26.7562 20.2249C26.6768 20.1456 26.6139 20.0514 26.5709 19.9477C26.5279 19.844 26.5058 19.7329 26.5058 19.6206V14.4607C26.5058 14.2341 26.5958 14.0168 26.756 13.8566C26.9162 13.6964 27.1335 13.6064 27.36 13.6064H34.6437L33.6258 11.8229C33.5197 11.6274 33.3617 11.465 33.1692 11.3537C32.9767 11.2424 32.7571 11.1864 32.5348 11.192H23.0061V31.7055H26.2433C26.4447 30.5655 27.0412 29.5329 27.9281 28.7889C28.815 28.0449 29.9357 27.6372 31.0933 27.6372C32.2509 27.6372 33.3716 28.0449 34.2585 28.7889C35.1454 29.5329 35.7419 30.5655 35.9433 31.7055H40.0353C40.2025 31.7088 40.3685 31.6783 40.5235 31.6156C40.6785 31.553 40.8192 31.4596 40.9371 31.3411C41.0549 31.2225 41.1475 31.0813 41.2093 30.926C41.2711 30.7707 41.3007 30.6044 41.2964 30.4373L41.2875 29.0158L41.2894 29.0183ZM41.2573 26.0077H39.3608V27.3099H41.2765L41.2554 26.0077H41.2573ZM31.0933 33.5352C31.2864 33.5352 31.4752 33.478 31.6357 33.3707C31.7962 33.2634 31.9214 33.1109 31.9952 32.9325C32.0691 32.7541 32.0884 32.5578 32.0507 32.3684C32.0129 32.179 31.9199 32.0051 31.7833 31.8686C31.6467 31.7321 31.4727 31.6392 31.2833 31.6016C31.094 31.564 30.8977 31.5834 30.7193 31.6574C30.5409 31.7314 30.3885 31.8566 30.2813 32.0172C30.1742 32.1778 30.117 32.3666 30.1171 32.5597C30.1173 32.8185 30.2202 33.0666 30.4033 33.2495C30.5863 33.4325 30.8345 33.5352 31.0933 33.5352ZM14.403 33.5352C14.5961 33.5352 14.7848 33.478 14.9454 33.3707C15.1059 33.2634 15.231 33.1109 15.3049 32.9325C15.3788 32.7541 15.3981 32.5578 15.3603 32.3684C15.3226 32.179 15.2296 32.0051 15.093 31.8686C14.9564 31.7321 14.7824 31.6392 14.593 31.6016C14.4036 31.564 14.2073 31.5834 14.029 31.6574C13.8506 31.7314 13.6982 31.8566 13.591 32.0172C13.4838 32.1778 13.4267 32.3666 13.4268 32.5597C13.427 32.8185 13.5299 33.0666 13.713 33.2495C13.896 33.4325 14.1442 33.5352 14.403 33.5352ZM16.3444 28.0332H21.2977V8.20774H1.70972V28.039H12.4603C13.0741 27.7766 13.7348 27.6414 14.4023 27.6414C15.0699 27.6414 15.7305 27.7766 16.3444 28.039V28.0332ZM4.67734 29.7416V31.7055H9.55493C9.67867 30.9994 9.9558 30.329 10.3668 29.7416H4.67734ZM16.6768 30.2859C16.1508 29.7596 15.4586 29.4321 14.7181 29.359C13.9777 29.286 13.2348 29.4719 12.6161 29.8852C11.9973 30.2984 11.5411 30.9135 11.325 31.6255C11.1089 32.3374 11.1463 33.1023 11.431 33.7898C11.7156 34.4772 12.2298 35.0447 12.886 35.3955C13.5422 35.7464 14.2997 35.8588 15.0294 35.7137C15.7592 35.5686 16.4161 35.175 16.8882 34.5999C17.3602 34.0248 17.6183 33.3038 17.6183 32.5597C17.619 32.1374 17.5361 31.719 17.3745 31.3288C17.213 30.9386 16.9759 30.5841 16.6768 30.2859ZM35.6192 15.3168H28.2142V18.769H37.5953C37.5677 18.726 37.5407 18.6811 37.5144 18.6355L35.6192 15.3168ZM33.3672 30.2859C32.8412 29.7603 32.1493 29.4333 31.4094 29.3606C30.6694 29.288 29.9271 29.4741 29.309 29.8873C28.6909 30.3005 28.2351 30.9153 28.0194 31.6268C27.8037 32.3384 27.8413 33.1027 28.1259 33.7896C28.4106 34.4765 28.9245 35.0435 29.5803 35.3939C30.236 35.7444 30.993 35.8567 31.7222 35.7116C32.4515 35.5666 33.1079 35.1732 33.5796 34.5985C34.0513 34.0237 34.3092 33.3032 34.3093 32.5597C34.3099 32.1373 34.227 31.7189 34.0653 31.3287C33.9036 30.9385 33.6663 30.584 33.3672 30.2859Z"-->
+<!--                                                        fill="white"-->
+<!--                                                />-->
+<!--                                            </svg>-->
+<!--                                            Фура-->
+<!--                                        </button>-->
+<!--                                        <button-->
+<!--                                                class="calculation__item-category-btn"-->
+<!--                                                data-tab="3"-->
+<!--                                        >-->
+<!--                                            <svg-->
+<!--                                                    xmlns="http://www.w3.org/2000/svg"-->
+<!--                                                    width="44"-->
+<!--                                                    height="43"-->
+<!--                                                    viewBox="0 0 44 43"-->
+<!--                                                    fill="none"-->
+<!--                                            >-->
+<!--                                                <path-->
+<!--                                                        d="M43.828 14.8197C43.6415 14.5455 43.3316 14.381 43.0003 14.381H39.222V11.867C39.222 11.3143 38.7738 10.8651 38.2203 10.8651H36.5378V6.50182C36.5378 5.94867 36.0892 5.49994 35.5361 5.49994H23.7992C23.2467 5.49994 22.798 5.94819 22.798 6.50182V10.8651H20.6154C20.0624 10.8651 19.6137 11.3138 19.6137 11.867V14.9575L18.1949 11.4879C18.0414 11.1116 17.6752 10.8651 17.2685 10.8651H15.8578V8.15081C15.8578 7.59813 15.4092 7.14892 14.8561 7.14892H10.9095C10.3565 7.14892 9.9083 7.59765 9.9083 8.15081V10.8651H8.49852C8.09184 10.8651 7.72569 11.1116 7.57217 11.4884L5.63461 16.2307H2.68823C2.35879 16.2307 2.04985 16.3929 1.86343 16.6647C1.67607 16.936 1.63507 17.2822 1.75378 17.5903L6.50184 29.9905C6.69922 30.507 7.27849 30.7654 7.79434 30.5675C8.31115 30.3697 8.56908 29.7907 8.3717 29.2743L5.88348 22.7756H35.5371C36.0896 22.7756 36.5388 22.3279 36.5388 21.7742C36.5388 21.2206 36.0901 20.7728 35.5371 20.7728H5.1159L4.14331 18.2331H35.8675C36.2722 18.2331 36.6365 17.9894 36.7919 17.6151L37.303 16.3838H41.5266L36.2537 29.7102C36.0501 30.2242 36.3023 30.8065 36.8162 31.0101C36.9373 31.0578 37.0618 31.0802 37.1843 31.0802C37.5829 31.0802 37.96 30.8403 38.1154 30.4469L43.93 15.7505C44.053 15.443 44.0144 15.0939 43.828 14.8197ZM11.9112 9.15222H13.8554V10.8651H11.9112V9.15222ZM7.7972 16.2307L9.17075 12.8684H16.5963L17.9708 16.2307H7.7972ZM25.4831 16.2307H21.6171V12.8684H25.4831V16.2307ZM24.8009 10.8651V7.50275H28.667V10.8651H24.8009ZM31.3516 16.2307H27.4855V12.8684H31.3516V16.2307ZM30.6693 10.8651V7.50275H34.5345V10.8651H30.6693ZM37.2196 14.381H36.6346C36.2293 14.381 35.8646 14.6251 35.7101 14.999L35.1991 16.2307H33.3545V12.8684H37.2196V14.381Z"-->
+<!--                                                        fill="#1E434C"-->
+<!--                                                />-->
+<!--                                                <path-->
+<!--                                                        d="M43.192 32.3315C42.6813 32.1178 42.0949 32.3577 41.8809 32.8674C41.3893 34.0396 40.094 34.8149 38.6732 34.7711C37.2501 34.7372 36.0095 33.9156 35.5867 32.7273C35.4007 32.2056 34.8277 31.9338 34.3075 32.1197C34.0634 32.2065 33.878 32.3796 33.764 32.5913C33.7516 32.6057 33.7368 32.6285 33.7192 32.671C33.2286 33.8422 31.9313 34.6161 30.512 34.5741C29.0889 34.5408 27.8488 33.7196 27.4259 32.5317C27.4245 32.5279 27.4231 32.526 27.4221 32.5222C27.3306 32.268 27.1394 32.0501 26.871 31.9366C26.3609 31.7225 25.774 31.9624 25.5599 32.4721C25.0674 33.6447 23.7711 34.4244 22.3508 34.3767C20.9286 34.3438 19.6886 33.5222 19.2657 32.3334C19.0802 31.8126 18.5081 31.5394 17.9865 31.7258C17.7625 31.8055 17.5885 31.959 17.4731 32.1479C17.4507 32.1703 17.4264 32.2118 17.3992 32.2771C16.9076 33.4502 15.6008 34.2279 14.1906 34.1798C12.7679 34.1469 11.5274 33.3257 11.1045 32.1369C11.1026 32.1321 11.1007 32.1302 11.0988 32.1259C11.0068 31.8727 10.8161 31.6567 10.5481 31.5437C10.0385 31.3296 9.45157 31.5704 9.2375 32.0801C8.74691 33.2518 7.44488 34.0253 6.0308 33.9843C4.60672 33.9504 3.36714 33.1292 2.94616 31.9414C2.76165 31.4197 2.18906 31.1465 1.66844 31.332C1.14686 31.517 0.874154 32.0892 1.05866 32.6104C1.75521 34.576 3.73377 35.9332 5.9836 35.9871C6.02842 35.988 6.07324 35.9885 6.11757 35.9885C7.66943 35.9885 9.11545 35.3614 10.1095 34.3257C11.0726 35.4406 12.5381 36.1454 14.1424 36.1831C14.1896 36.184 14.2354 36.1845 14.2821 36.1845C15.8321 36.1845 17.2766 35.5579 18.2702 34.5231C19.2333 35.638 20.6988 36.3428 22.3031 36.381C22.3484 36.3819 22.3933 36.3824 22.4381 36.3824C23.9894 36.3824 25.4355 35.7553 26.43 34.7201C27.393 35.835 28.8591 36.5398 30.4648 36.5779C30.5096 36.5789 30.5545 36.5793 30.5988 36.5793C32.1511 36.5793 33.5971 35.9523 34.5907 34.917C35.5538 36.0314 37.0193 36.7362 38.6246 36.7748C38.6694 36.7758 38.7142 36.7763 38.7586 36.7763C40.9488 36.7763 42.934 35.5302 43.7255 33.6438C43.9414 33.1326 43.7016 32.5456 43.192 32.3315Z"-->
+<!--                                                        fill="#1E434C"-->
+<!--                                                />-->
+<!--                                            </svg>-->
+<!--                                            Корабель-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+<!--                                    --><?php //echo do_shortcode('[contact-form-7 id="5979a72" title="Индивидуальный расчёт стоимости - Фура"]'); ?>
+<!--                                    <div class="form__agreement">-->
+<!--                                        --><?php //the_field('text_before_processing'); ?>
+<!---->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <picture>-->
+<!--                                <source-->
+<!--                                        srcset="--><?php //echo get_template_directory_uri(); ?><!--/img/calculation/02.png"-->
+<!--                                        type="image/webp"-->
+<!--                                />-->
+<!--                                <img-->
+<!--                                        src="--><?php //echo get_template_directory_uri(); ?><!--/img/calculation/02.png"-->
+<!--                                        class="calculation__item-img"-->
+<!--                                        alt="calculation img"-->
+<!--                                />-->
+<!--                            </picture>-->
+<!--                        </div>-->
+<!--                        <div class="calculation__item" data-tab="3">-->
+<!--                            <div class="form__inner">-->
+<!--                                <div class="form__body">-->
+<!--                                    <h3 class="form__title">--><?php //the_field('Individual_calculation'); ?>
+<!--                                    </h3>-->
+<!---->
+<!--                                    <p class="form__text">--><?php //the_field('description_individual_calculation'); ?>
+<!--                                    </p>-->
+<!--                                    <div class="calculation__item-categories">-->
+<!--                                        <button-->
+<!--                                                class="calculation__item-category-btn"-->
+<!--                                                data-tab="1"-->
+<!--                                        >-->
+<!--                                            <svg-->
+<!--                                                    xmlns="http://www.w3.org/2000/svg"-->
+<!--                                                    width="44"-->
+<!--                                                    height="43"-->
+<!--                                                    viewBox="0 0 44 43"-->
+<!--                                                    fill="none"-->
+<!--                                            >-->
+<!--                                                <path-->
+<!--                                                        d="M1.91565 9.63096H5.67839C6.22668 9.63096 6.75346 9.8735 7.11361 10.2979L11.3548 15.2369C11.6182 15.5456 11.9998 15.722 12.403 15.722H17.3913L12.6771 9.6916C12.2148 9.09627 12.1234 8.30251 12.446 7.61348C12.7685 6.92996 13.4296 6.5 14.1714 6.5H17.7568C18.8157 6.5 19.8156 6.91342 20.5789 7.66309L28.7817 15.722H37.0436C38.6347 15.722 40.129 16.3559 41.2578 17.5135C42.4028 18.6986 43.021 20.2641 42.9995 21.9233C42.9672 24.3266 41.0213 26.278 38.6615 26.278H28.7817L20.5789 34.3369C19.8156 35.0866 18.8157 35.5 17.7568 35.5H14.1714C13.4296 35.5 12.7685 35.0756 12.446 34.3865C12.1234 33.6975 12.2148 32.9037 12.6771 32.3084L17.3913 26.2725H11.258C9.24762 26.2725 7.36625 25.1645 6.36106 23.3785L0.260033 12.58C-0.0839882 11.9682 -0.0893631 11.2295 0.260033 10.6177C0.604057 10.0003 1.2276 9.63648 1.91565 9.63648V9.63096ZM19.0899 9.25062C18.7297 8.89783 18.2567 8.69939 17.7568 8.69939H14.6606L20.1435 15.7165H25.6747L19.0899 9.25062ZM8.21556 22.2706C8.8391 23.3785 10.0056 24.0676 11.2526 24.0676H19.106L19.7833 23.1966C20.1542 22.7226 20.8315 22.6454 21.2938 23.0258C21.7561 23.4061 21.8313 24.1006 21.4604 24.5747L14.6498 33.2896H17.7461C18.246 33.2896 18.719 33.0967 19.0791 32.7384L27.5937 24.3707C27.7926 24.1723 28.0614 24.0621 28.3355 24.0621H38.6508C39.8441 24.0621 40.8224 23.0864 40.8386 21.8847C40.8547 20.8209 40.4569 19.8176 39.7259 19.0624C39.0056 18.3238 38.0488 17.9159 37.0328 17.9159H12.3868C11.3709 17.9159 10.3979 17.4694 9.72603 16.6811L5.55476 11.8248H2.30805L8.19943 22.2596L8.21556 22.2706Z"-->
+<!--                                                        fill="#1E434C"-->
+<!--                                                />-->
+<!--                                            </svg>-->
+<!--                                            Літак-->
+<!--                                        </button>-->
+<!--                                        <button-->
+<!--                                                class="calculation__item-category-btn"-->
+<!--                                                data-tab="2"-->
+<!--                                        >-->
+<!--                                            <svg-->
+<!--                                                    xmlns="http://www.w3.org/2000/svg"-->
+<!--                                                    width="44"-->
+<!--                                                    height="43"-->
+<!--                                                    viewBox="0 0 44 43"-->
+<!--                                                    fill="#1E434C"-->
+<!--                                            >-->
+<!--                                                <path-->
+<!--                                                        fill-rule="evenodd"-->
+<!--                                                        clip-rule="evenodd"-->
+<!--                                                        d="M19.2536 31.7055H21.2977V29.7416H18.4411C18.8523 30.3289 19.1297 30.9993 19.2536 31.7055ZM18.1799 19.2157C18.294 19.2125 18.4076 19.2323 18.5139 19.2738C18.6203 19.3153 18.7172 19.3777 18.799 19.4573C18.8808 19.5369 18.9459 19.6321 18.9903 19.7373C19.0347 19.8424 19.0575 19.9554 19.0575 20.0696C19.0575 20.1837 19.0347 20.2967 18.9903 20.4019C18.9459 20.507 18.8808 20.6022 18.799 20.6818C18.7172 20.7614 18.6203 20.8238 18.5139 20.8653C18.4076 20.9068 18.294 20.9266 18.1799 20.9235H15.7238C15.6097 20.9266 15.4961 20.9068 15.3898 20.8653C15.2834 20.8238 15.1865 20.7614 15.1047 20.6818C15.0229 20.6022 14.9578 20.507 14.9134 20.4019C14.869 20.2967 14.8462 20.1837 14.8462 20.0696C14.8462 19.9554 14.869 19.8424 14.9134 19.7373C14.9578 19.6321 15.0229 19.5369 15.1047 19.4573C15.1865 19.3777 15.2834 19.3153 15.3898 19.2738C15.4961 19.2323 15.6097 19.2125 15.7238 19.2157H18.1799ZM18.1799 15.3649C18.4065 15.3649 18.6237 15.4549 18.7839 15.6151C18.9441 15.7753 19.0341 15.9926 19.0341 16.2192C19.0341 16.4457 18.9441 16.663 18.7839 16.8232C18.6237 16.9834 18.4065 17.0734 18.1799 17.0734H10.0587C9.83218 17.0734 9.6149 16.9834 9.45471 16.8232C9.29451 16.663 9.20451 16.4457 9.20451 16.2192C9.20451 15.9926 9.29451 15.7753 9.45471 15.6151C9.6149 15.4549 9.83218 15.3649 10.0587 15.3649H18.1799ZM18.1799 11.5142C18.4065 11.5142 18.6237 11.6042 18.7839 11.7644C18.9441 11.9246 19.0341 12.1419 19.0341 12.3684C19.0341 12.595 18.9441 12.8123 18.7839 12.9725C18.6237 13.1327 18.4065 13.2227 18.1799 13.2227H5.57007C5.34352 13.2227 5.12625 13.1327 4.96605 12.9725C4.80585 12.8123 4.71585 12.595 4.71585 12.3684C4.71585 12.1419 4.80585 11.9246 4.96605 11.7644C5.12625 11.6042 5.34352 11.5142 5.57007 11.5142H18.1799ZM42.9997 30.4303C43.005 30.822 42.932 31.2108 42.7851 31.5739C42.6382 31.9371 42.4204 32.2673 42.1444 32.5453C41.8683 32.8232 41.5396 33.0433 41.1775 33.1927C40.8153 33.3421 40.4271 33.4177 40.0353 33.4152H35.9433C35.7419 34.5552 35.1454 35.5878 34.2585 36.3318C33.3716 37.0758 32.2509 37.4835 31.0933 37.4835C29.9357 37.4835 28.815 37.0758 27.9281 36.3318C27.0412 35.5878 26.4447 34.5552 26.2433 33.4152H19.2536C19.0522 34.5552 18.4557 35.5878 17.5688 36.3318C16.6819 37.0758 15.5613 37.4835 14.4036 37.4835C13.246 37.4835 12.1254 37.0758 11.2384 36.3318C10.3515 35.5878 9.75502 34.5552 9.55364 33.4152H3.82313C3.59669 33.4152 3.37951 33.3253 3.21933 33.1652C3.05915 33.0052 2.96908 32.7881 2.96891 32.5616V29.7378H0.855503C0.630023 29.7376 0.413828 29.648 0.25439 29.4885C0.0949516 29.3291 0.00530476 29.1129 0.00513478 28.8874L2.41654e-07 7.35352C-8.41521e-05 7.2414 0.0219371 7.13037 0.0648035 7.02677C0.10767 6.92317 0.170541 6.82904 0.249819 6.74976C0.329098 6.67048 0.423229 6.60761 0.526828 6.56474C0.630427 6.52188 0.74146 6.49985 0.853577 6.49994H22.1519C22.264 6.49985 22.3751 6.52188 22.4787 6.56474C22.5823 6.60761 22.6764 6.67048 22.7557 6.74976C22.835 6.82904 22.8978 6.92317 22.9407 7.02677C22.9836 7.13037 23.0056 7.2414 23.0055 7.35352V9.48361H32.5322C33.056 9.48007 33.5712 9.61727 34.0239 9.88088C34.4767 10.1445 34.8503 10.5248 35.1058 10.9822L38.9943 17.7922C39.0346 17.8646 39.0821 17.9328 39.1362 17.9956C39.1918 18.0579 39.2535 18.1144 39.3204 18.1644L41.772 20.0429C42.1358 20.3137 42.4307 20.6664 42.6329 21.0723C42.835 21.4783 42.9387 21.9262 42.9356 22.3797L42.9997 30.4303ZM41.2894 29.0183H38.5072C38.3951 29.0183 38.284 28.9962 38.1804 28.9533C38.0768 28.9104 37.9827 28.8474 37.9034 28.7681C37.8242 28.6888 37.7613 28.5946 37.7184 28.491C37.6756 28.3873 37.6536 28.2763 37.6537 28.1641V25.1509C37.6536 25.0388 37.6756 24.9277 37.7184 24.8241C37.7613 24.7204 37.8242 24.6263 37.9034 24.5469C37.9827 24.4676 38.0768 24.4047 38.1804 24.3617C38.284 24.3188 38.3951 24.2967 38.5072 24.2967H41.2451L41.2329 22.3867C41.2348 22.1946 41.191 22.0048 41.1052 21.8328C41.0194 21.6609 40.894 21.5118 40.7394 21.3977L39.5341 20.4749H27.3607C27.2484 20.4749 27.1373 20.4529 27.0336 20.41C26.9299 20.3671 26.8356 20.3042 26.7562 20.2249C26.6768 20.1456 26.6139 20.0514 26.5709 19.9477C26.5279 19.844 26.5058 19.7329 26.5058 19.6206V14.4607C26.5058 14.2341 26.5958 14.0168 26.756 13.8566C26.9162 13.6964 27.1335 13.6064 27.36 13.6064H34.6437L33.6258 11.8229C33.5197 11.6274 33.3617 11.465 33.1692 11.3537C32.9767 11.2424 32.7571 11.1864 32.5348 11.192H23.0061V31.7055H26.2433C26.4447 30.5655 27.0412 29.5329 27.9281 28.7889C28.815 28.0449 29.9357 27.6372 31.0933 27.6372C32.2509 27.6372 33.3716 28.0449 34.2585 28.7889C35.1454 29.5329 35.7419 30.5655 35.9433 31.7055H40.0353C40.2025 31.7088 40.3685 31.6783 40.5235 31.6156C40.6785 31.553 40.8192 31.4596 40.9371 31.3411C41.0549 31.2225 41.1475 31.0813 41.2093 30.926C41.2711 30.7707 41.3007 30.6044 41.2964 30.4373L41.2875 29.0158L41.2894 29.0183ZM41.2573 26.0077H39.3608V27.3099H41.2765L41.2554 26.0077H41.2573ZM31.0933 33.5352C31.2864 33.5352 31.4752 33.478 31.6357 33.3707C31.7962 33.2634 31.9214 33.1109 31.9952 32.9325C32.0691 32.7541 32.0884 32.5578 32.0507 32.3684C32.0129 32.179 31.9199 32.0051 31.7833 31.8686C31.6467 31.7321 31.4727 31.6392 31.2833 31.6016C31.094 31.564 30.8977 31.5834 30.7193 31.6574C30.5409 31.7314 30.3885 31.8566 30.2813 32.0172C30.1742 32.1778 30.117 32.3666 30.1171 32.5597C30.1173 32.8185 30.2202 33.0666 30.4033 33.2495C30.5863 33.4325 30.8345 33.5352 31.0933 33.5352ZM14.403 33.5352C14.5961 33.5352 14.7848 33.478 14.9454 33.3707C15.1059 33.2634 15.231 33.1109 15.3049 32.9325C15.3788 32.7541 15.3981 32.5578 15.3603 32.3684C15.3226 32.179 15.2296 32.0051 15.093 31.8686C14.9564 31.7321 14.7824 31.6392 14.593 31.6016C14.4036 31.564 14.2073 31.5834 14.029 31.6574C13.8506 31.7314 13.6982 31.8566 13.591 32.0172C13.4838 32.1778 13.4267 32.3666 13.4268 32.5597C13.427 32.8185 13.5299 33.0666 13.713 33.2495C13.896 33.4325 14.1442 33.5352 14.403 33.5352ZM16.3444 28.0332H21.2977V8.20774H1.70972V28.039H12.4603C13.0741 27.7766 13.7348 27.6414 14.4023 27.6414C15.0699 27.6414 15.7305 27.7766 16.3444 28.039V28.0332ZM4.67734 29.7416V31.7055H9.55493C9.67867 30.9994 9.9558 30.329 10.3668 29.7416H4.67734ZM16.6768 30.2859C16.1508 29.7596 15.4586 29.4321 14.7181 29.359C13.9777 29.286 13.2348 29.4719 12.6161 29.8852C11.9973 30.2984 11.5411 30.9135 11.325 31.6255C11.1089 32.3374 11.1463 33.1023 11.431 33.7898C11.7156 34.4772 12.2298 35.0447 12.886 35.3955C13.5422 35.7464 14.2997 35.8588 15.0294 35.7137C15.7592 35.5686 16.4161 35.175 16.8882 34.5999C17.3602 34.0248 17.6183 33.3038 17.6183 32.5597C17.619 32.1374 17.5361 31.719 17.3745 31.3288C17.213 30.9386 16.9759 30.5841 16.6768 30.2859ZM35.6192 15.3168H28.2142V18.769H37.5953C37.5677 18.726 37.5407 18.6811 37.5144 18.6355L35.6192 15.3168ZM33.3672 30.2859C32.8412 29.7603 32.1493 29.4333 31.4094 29.3606C30.6694 29.288 29.9271 29.4741 29.309 29.8873C28.6909 30.3005 28.2351 30.9153 28.0194 31.6268C27.8037 32.3384 27.8413 33.1027 28.1259 33.7896C28.4106 34.4765 28.9245 35.0435 29.5803 35.3939C30.236 35.7444 30.993 35.8567 31.7222 35.7116C32.4515 35.5666 33.1079 35.1732 33.5796 34.5985C34.0513 34.0237 34.3092 33.3032 34.3093 32.5597C34.3099 32.1373 34.227 31.7189 34.0653 31.3287C33.9036 30.9385 33.6663 30.584 33.3672 30.2859Z"-->
+<!--                                                        fill="#1E434C"-->
+<!--                                                />-->
+<!--                                            </svg>-->
+<!--                                            Фура-->
+<!--                                        </button>-->
+<!--                                        <button-->
+<!--                                                class="calculation__item-category-btn _active-category"-->
+<!--                                                data-tab="3"-->
+<!--                                        >-->
+<!--                                            <svg-->
+<!--                                                    xmlns="http://www.w3.org/2000/svg"-->
+<!--                                                    width="44"-->
+<!--                                                    height="43"-->
+<!--                                                    viewBox="0 0 44 43"-->
+<!--                                                    fill="none"-->
+<!--                                            >-->
+<!--                                                <path-->
+<!--                                                        d="M43.828 14.8197C43.6415 14.5455 43.3316 14.381 43.0003 14.381H39.222V11.867C39.222 11.3143 38.7738 10.8651 38.2203 10.8651H36.5378V6.50182C36.5378 5.94867 36.0892 5.49994 35.5361 5.49994H23.7992C23.2467 5.49994 22.798 5.94819 22.798 6.50182V10.8651H20.6154C20.0624 10.8651 19.6137 11.3138 19.6137 11.867V14.9575L18.1949 11.4879C18.0414 11.1116 17.6752 10.8651 17.2685 10.8651H15.8578V8.15081C15.8578 7.59813 15.4092 7.14892 14.8561 7.14892H10.9095C10.3565 7.14892 9.9083 7.59765 9.9083 8.15081V10.8651H8.49852C8.09184 10.8651 7.72569 11.1116 7.57217 11.4884L5.63461 16.2307H2.68823C2.35879 16.2307 2.04985 16.3929 1.86343 16.6647C1.67607 16.936 1.63507 17.2822 1.75378 17.5903L6.50184 29.9905C6.69922 30.507 7.27849 30.7654 7.79434 30.5675C8.31115 30.3697 8.56908 29.7907 8.3717 29.2743L5.88348 22.7756H35.5371C36.0896 22.7756 36.5388 22.3279 36.5388 21.7742C36.5388 21.2206 36.0901 20.7728 35.5371 20.7728H5.1159L4.14331 18.2331H35.8675C36.2722 18.2331 36.6365 17.9894 36.7919 17.6151L37.303 16.3838H41.5266L36.2537 29.7102C36.0501 30.2242 36.3023 30.8065 36.8162 31.0101C36.9373 31.0578 37.0618 31.0802 37.1843 31.0802C37.5829 31.0802 37.96 30.8403 38.1154 30.4469L43.93 15.7505C44.053 15.443 44.0144 15.0939 43.828 14.8197ZM11.9112 9.15222H13.8554V10.8651H11.9112V9.15222ZM7.7972 16.2307L9.17075 12.8684H16.5963L17.9708 16.2307H7.7972ZM25.4831 16.2307H21.6171V12.8684H25.4831V16.2307ZM24.8009 10.8651V7.50275H28.667V10.8651H24.8009ZM31.3516 16.2307H27.4855V12.8684H31.3516V16.2307ZM30.6693 10.8651V7.50275H34.5345V10.8651H30.6693ZM37.2196 14.381H36.6346C36.2293 14.381 35.8646 14.6251 35.7101 14.999L35.1991 16.2307H33.3545V12.8684H37.2196V14.381Z"-->
+<!--                                                        fill="white"-->
+<!--                                                />-->
+<!--                                                <path-->
+<!--                                                        d="M43.192 32.3315C42.6813 32.1178 42.0949 32.3577 41.8809 32.8674C41.3893 34.0396 40.094 34.8149 38.6732 34.7711C37.2501 34.7372 36.0095 33.9156 35.5867 32.7273C35.4007 32.2056 34.8277 31.9338 34.3075 32.1197C34.0634 32.2065 33.878 32.3796 33.764 32.5913C33.7516 32.6057 33.7368 32.6285 33.7192 32.671C33.2286 33.8422 31.9313 34.6161 30.512 34.5741C29.0889 34.5408 27.8488 33.7196 27.4259 32.5317C27.4245 32.5279 27.4231 32.526 27.4221 32.5222C27.3306 32.268 27.1394 32.0501 26.871 31.9366C26.3609 31.7225 25.774 31.9624 25.5599 32.4721C25.0674 33.6447 23.7711 34.4244 22.3508 34.3767C20.9286 34.3438 19.6886 33.5222 19.2657 32.3334C19.0802 31.8126 18.5081 31.5394 17.9865 31.7258C17.7625 31.8055 17.5885 31.959 17.4731 32.1479C17.4507 32.1703 17.4264 32.2118 17.3992 32.2771C16.9076 33.4502 15.6008 34.2279 14.1906 34.1798C12.7679 34.1469 11.5274 33.3257 11.1045 32.1369C11.1026 32.1321 11.1007 32.1302 11.0988 32.1259C11.0068 31.8727 10.8161 31.6567 10.5481 31.5437C10.0385 31.3296 9.45157 31.5704 9.2375 32.0801C8.74691 33.2518 7.44488 34.0253 6.0308 33.9843C4.60672 33.9504 3.36714 33.1292 2.94616 31.9414C2.76165 31.4197 2.18906 31.1465 1.66844 31.332C1.14686 31.517 0.874154 32.0892 1.05866 32.6104C1.75521 34.576 3.73377 35.9332 5.9836 35.9871C6.02842 35.988 6.07324 35.9885 6.11757 35.9885C7.66943 35.9885 9.11545 35.3614 10.1095 34.3257C11.0726 35.4406 12.5381 36.1454 14.1424 36.1831C14.1896 36.184 14.2354 36.1845 14.2821 36.1845C15.8321 36.1845 17.2766 35.5579 18.2702 34.5231C19.2333 35.638 20.6988 36.3428 22.3031 36.381C22.3484 36.3819 22.3933 36.3824 22.4381 36.3824C23.9894 36.3824 25.4355 35.7553 26.43 34.7201C27.393 35.835 28.8591 36.5398 30.4648 36.5779C30.5096 36.5789 30.5545 36.5793 30.5988 36.5793C32.1511 36.5793 33.5971 35.9523 34.5907 34.917C35.5538 36.0314 37.0193 36.7362 38.6246 36.7748C38.6694 36.7758 38.7142 36.7763 38.7586 36.7763C40.9488 36.7763 42.934 35.5302 43.7255 33.6438C43.9414 33.1326 43.7016 32.5456 43.192 32.3315Z"-->
+<!--                                                        fill="white"-->
+<!--                                                />-->
+<!--                                            </svg>-->
+<!--                                            Корабель-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+<!--                                    --><?php //echo do_shortcode('[contact-form-7 id="5979a72" title="Индивидуальный расчёт стоимости - Корабль"]'); ?>
+<!--                                    <div class="form__agreement">-->
+<!--                                        --><?php //the_field('text_before_processing'); ?>
+<!---->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <picture>-->
+<!--                                <source-->
+<!--                                        srcset="--><?php //echo get_template_directory_uri(); ?><!--/img/calculation/03.png"-->
+<!--                                        type="image/webp"-->
+<!--                                />-->
+<!--                                <img-->
+<!--                                        src="--><?php //echo get_template_directory_uri(); ?><!--/img/calculation/03.png"-->
+<!--                                        class="calculation__item-img"-->
+<!--                                        alt="calculation img"-->
+<!--                                />-->
+<!--                            </picture>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
 
         </div>
     </section>

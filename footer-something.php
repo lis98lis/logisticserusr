@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer footer_something">
     <?php $front_id = get_option('page_on_front'); ?>
     <div class="footer__container">
         <div class="footer__body">

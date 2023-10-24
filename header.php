@@ -29,9 +29,9 @@ if (is_user_logged_in()) {
             <header class="header">
                 <div class="header__body">
                     <div class="header__container">
-                        <a href="/" class="header__logo">
+
                          <?php the_custom_logo(); ?>
-                        </a>
+
 
                         <div class="header__navigation">
                             <div class="header__menu-burger">
@@ -44,13 +44,15 @@ if (is_user_logged_in()) {
                                         wp_nav_menu( array(
                                             'menu'              => 'menu_ru'));}
                                     ?>
+                                    <?php pll_the_languages( array( 'show_flags' => 1, 'dropdown' => 1, 'post_id' => 2) ); ?>
                                     </ul>
                                 </nav>
+
                             </div>
                         </div>
 
                         <div class="header__actions">
-                            <?php pll_the_languages( array( 'show_flags' => 1, 'dropdown' => 1 ) ); ?>
+
 <!--                            <div class="header__actions-lang lang-header" data-da=".menu-body,500">-->
 <!--                                <div class="lang-header__items">-->
 <!--                                    <div class="lang-header__item">-->
@@ -82,14 +84,12 @@ if (is_user_logged_in()) {
 <!--                            </div>-->
                             <div
                                 class="header__action-phone phone-action"
-                                data-da=".header__container,500,2"
-                            >
+                                data-da=".header__container,500,2">
                                 <img src="<?php the_field('Contact_phone_image', $front_id); ?>" alt="phone icon" />
                                 <div class="phone-action__body">
                                     <div class="phone-action__label"> <?php the_field('name_men', $front_id); ?></div>
                                     <a href="tel:<?php the_field('enter_number_link', $front_id); ?>" class="phone-action__number"
-                                        ><?php the_field('enter_number_telephone', $front_id); ?></a
-                                    >
+                                        ><?php the_field('enter_number_telephone', $front_id); ?></a>
                                 </div>
                             </div>
                             <div data-da=".menu-body,768,98" class="header__actions-social">

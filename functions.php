@@ -18,6 +18,8 @@ add_action('wp_body_open', 'add_admin_bar_to_top');
 
 add_theme_support('menus');
 
+add_theme_support( 'custom-background');
+
 add_theme_support('custom-logo');
 
 add_action('init', 'polylang_strings' );

@@ -5,13 +5,15 @@ Template Name: template
 ?>
 
 <?php get_header(); ?>
-    <main>
+    <main class="main">
         <div class="page__top">
             <div class="page__container-page">
                 <div class="page__breadcrumbs">
-                    <a href="/" class="page__breadcrumbs__link">Главная</a>
-                    <img src="<?php bloginfo('template_url'); ?>/img/icons/arrow-right-red.svg" alt="arrow right red"/>
-                    <span>Типовая страница</span>
+                    <?php
+                    if ( function_exists('yoast_breadcrumb') ) {
+                        yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+                    }
+                    ?>
                 </div>
                 <h1 class="page__title--h1"><?php the_field('title_template'); ?></h1>
             </div>
@@ -48,13 +50,9 @@ Template Name: template
                             <p class="page__description">
                                 <?php the_sub_field('text_block_two_template'); ?>
                             </p>
-
                         <?php endwhile;
-
                     else :
-
                     endif;
-
                     ?>
 
                 </div>
@@ -62,24 +60,17 @@ Template Name: template
                     <h3 class="page__title--h3">
                         <?php the_field('title_block_three_template'); ?>
                     </h3>
-
                     <?php
-
                     // проверяем есть ли в повторителе данные
                     if (have_rows('repeat_block_three_template')):
-
                         // перебираем данные
                         while (have_rows('repeat_block_three_template')) : the_row(); ?>
                             <p class="page__description">
                                 <?php the_sub_field('text_block_three_template'); ?>
                             </p>
-
                         <?php endwhile;
-
                     else :
-
                     endif;
-
                     ?>
 
                 </div>
@@ -87,40 +78,31 @@ Template Name: template
                     <h4 class="page__title--h4"><?php the_field('title_ten_block_template'); ?></h4>
 
                     <?php
-
                     // проверяем есть ли в повторителе данные
                     if (have_rows('repeat_block_four_template')):
-
                         // перебираем данные
                         while (have_rows('repeat_block_four_template')) : the_row(); ?>
                             <p class="page__description--bold">
                                 <?php the_sub_field('text_block_four_template'); ?>
                             </p>
-
                         <?php endwhile;
-
                     else :
-
                     endif;
-
                     ?>
+
                 </div>
                 <div class="page__columns">
 
                     <h5 class="page__title--h5"><?php the_field('title_block_five_template'); ?></h5>
                     <?php
-
                     // проверяем есть ли в повторителе данные
                     if (have_rows('repeat_creating_columns_five_blocks_template')):
-
                         // перебираем данные
                         while (have_rows('repeat_creating_columns_five_blocks_template')) : the_row(); ?>
                             <div class="page__columns-inner">
                                 <?php
-
                                 // проверяем есть ли в повторителе данные
                                 if (have_rows('repeat_column_five_block_template')):
-
                                     // перебираем данные
                                     while (have_rows('repeat_column_five_block_template')) : the_row(); ?>
                                         <div class="page__columns-item">
@@ -130,15 +112,10 @@ Template Name: template
                                             <p class="page__description">
                                                 <?php the_sub_field('text_block_five_template'); ?>
                                             </p>
-
                                         </div>
-
                                     <?php endwhile;
-
                                 else :
-
                                 endif;
-
                                 ?>
 
 
@@ -151,30 +128,11 @@ Template Name: template
                     endif;
 
                     ?>
-
-
                 </div>
                 <div class="page__tables">
-                    <h4 class="page__title--h4">Таблиця</h4>
+                    <h4 class="page__title--h4"><?php the_field('table_title'); ?></h4>
                     <table class="page__table">
-                        <tr>
-                            <th>Item</th>
-                            <th>Item</th>
-                            <th>Item</th>
-                            <th>Item</th>
-                        </tr>
-                        <tr>
-                            <td>Item</td>
-                            <td>Item</td>
-                            <td>Item</td>
-                            <td>Item</td>
-                        </tr>
-                        <tr>
-                            <td>Item</td>
-                            <td>Item</td>
-                            <td>Item</td>
-                            <td>Item</td>
-                        </tr>
+                        <?php the_field('table'); ?>
                     </table>
                 </div>
                 <div class="page__divider">
@@ -309,21 +267,20 @@ Template Name: template
                     ?>
 
 
-
-
                 </div>
 
 
                 <div class="page__steps">
                     <h4 class="page__title--h4"><?php the_field('title_ten_block_template'); ?></h4>
-                    <?php
+                    <div class="steps__body-page">
+                        <?php
 
-                    // проверяем есть ли в повторителе данные
-                    if (have_rows('repeater_ten_block_template')):
+                        // проверяем есть ли в повторителе данные
+                        if (have_rows('repeater_ten_block_template')):
 
-                        // перебираем данные
-                        while (have_rows('repeater_ten_block_template')) : the_row(); ?>
-                            <div class="steps__body-page">
+                            // перебираем данные
+                            while (have_rows('repeater_ten_block_template')) : the_row(); ?>
+
                                 <div class="steps__item-page item-steps__page">
                                     <div class="item-steps__top">
                                         <img
@@ -338,16 +295,15 @@ Template Name: template
                                     </p>
                                 </div>
 
-                            </div>
 
-                        <?php endwhile;
+                            <?php endwhile;
 
-                    else :
+                        else :
 
-                    endif;
+                        endif;
 
-                    ?>
-
+                        ?>
+                    </div>
                 </div>
                 <div class="page__info">
                     <h4 class="page__title--h4"><?php the_field('title_eleventh_block_template'); ?></h4>
@@ -504,10 +460,12 @@ Template Name: template
 
                         </div>
                         <div class="swiper-button-next">
-                            <img src="<?php echo get_template_directory_uri() ?>/img/icons/arrow-right-black.svg" alt="arrow right"/>
+                            <img src="<?php echo get_template_directory_uri() ?>/img/icons/arrow-right-black.svg"
+                                 alt="arrow right"/>
                         </div>
                         <div class="swiper-button-prev">
-                            <img src="<?php echo get_template_directory_uri() ?>/img/icons/arrow-left-black.svg" alt="arrow left"/>
+                            <img src="<?php echo get_template_directory_uri() ?>/img/icons/arrow-left-black.svg"
+                                 alt="arrow left"/>
                         </div>
                     </div>
                 </div>
@@ -574,4 +532,4 @@ Template Name: template
             </div>
         </main>
     </main>
-<?php get_footer(); ?>
+<?php get_footer( 'something' ); ?>
