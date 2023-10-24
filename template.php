@@ -368,7 +368,7 @@ Template Name: template
                     <h4 class="page__title--h4"><?php the_field('title_twelfth_block_template'); ?></h4>
                     <div class="page__info-inner page__info-inner--reverse">
                         <div class="page__info-img">
-                            <img src="<?php the_field('img_twelfth_block_template'); ?>"/>
+                            <img src="<?php the_field('img_twelfth_block_template'); ?>" alt="img"/>
                         </div>
                         <div class="page__info-content">
                             <h4 class="page__title--h4"><?php the_field('subtitle_twelfth_block_template'); ?></h4>
@@ -483,7 +483,7 @@ Template Name: template
                                    class="page__share-item">
                                     <div class="page__share-item-icon">
                                         <img src="<?php the_sub_field('Social_image_networks_template'); ?>"
-                                             alt="facebook"/>
+                                             alt="icon"/>
                                     </div>
                                     <div class="page__share-item-title">  <?php the_sub_field('Name_social_networks_template'); ?></div>
                                 </a>

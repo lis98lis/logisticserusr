@@ -148,7 +148,7 @@ Template Name: main page
                                     /></a>
                             </div>
                             <div class="item-services__img">
-                                <img src="<?php the_sub_field('Image_services'); ?>"/>
+                                <img src="<?php the_sub_field('Image_services'); ?>" alt="img"/>
                             </div>
                         </div>
                     <?php endwhile;
@@ -399,62 +399,7 @@ Template Name: main page
                                             Корабль
                                         </button>
                                     </div>
-                                    <form class="form__form">
-                                        <div
-                                                class="custom-selector"
-                                                id="countrySelector"
-                                        >
-                                                        <span class="selector-label"
-                                                        >Страна с которой нужно доставить</span
-                                                        >
-                                            <img
-                                                    src="<?php echo get_template_directory_uri() ?>/img/icons/chevron-bottom.svg"
-                                                    class="chevron-icon"
-                                                    alt="chevron icon"
-                                            />
-                                            <div class="options">
-                                                <div class="option">Страна 1</div>
-                                                <div class="option">Страна 2</div>
-                                                <div class="option">Страна 3</div>
-                                            </div>
-                                        </div>
-
-                                        <div
-                                                class="custom-selector"
-                                                id="cargoVolumeSelector"
-                                        >
-                                                        <span class="selector-label"
-                                                        >Объем груза</span
-                                                        >
-                                            <img
-                                                    src="<?php echo get_template_directory_uri() ?>/img/icons/chevron-bottom.svg"
-                                                    class="chevron-icon"
-                                                    alt="chevron icon"
-                                            />
-                                            <div class="options">
-                                                <div class="option">Маленький</div>
-                                                <div class="option">Средний</div>
-                                                <div class="option">Большой</div>
-                                            </div>
-                                        </div>
-                                        <input
-                                                type="text"
-                                                class="form__input"
-                                                placeholder="Ваше имя"
-                                        />
-                                        <input
-                                                type="phone"
-                                                class="form__input"
-                                                placeholder="Телефон"
-                                        />
-                                        <button
-                                                type="submit"
-                                                class="calc-btn__small"
-                                                style="width: 100%"
-                                        >
-                                            Отправить
-                                        </button>
-                                    </form>
+                                    <?php echo do_shortcode('[contact-form-7 id="00b79a6" title="Индивидуальный расчёт стоимости - Фура"]') ?>
                                     <div class="form__agreement">
                                         Нажимая на кнопку, я соглашаюсь на
                                         <a href="#" class="form__agreement-link"
@@ -544,62 +489,8 @@ Template Name: main page
                                             Корабль
                                         </button>
                                     </div>
-                                    <form class="form__form">
-                                        <div
-                                                class="custom-selector"
-                                                id="countrySelector"
-                                        >
-                                                        <span class="selector-label"
-                                                        >Страна с которой нужно доставить</span
-                                                        >
-                                            <img
-                                                    src="<?php echo get_template_directory_uri() ?>/img/icons/chevron-bottom.svg"
-                                                    class="chevron-icon"
-                                                    alt="chevron icon"
-                                            />
-                                            <div class="options">
-                                                <div class="option">Страна 1</div>
-                                                <div class="option">Страна 2</div>
-                                                <div class="option">Страна 3</div>
-                                            </div>
-                                        </div>
+                                    <?php echo do_shortcode('[contact-form-7 id="6de0ded" title="Индивидуальный расчёт стоимости - Корабль"]') ?>
 
-                                        <div
-                                                class="custom-selector"
-                                                id="cargoVolumeSelector"
-                                        >
-                                                        <span class="selector-label"
-                                                        >Объем груза</span
-                                                        >
-                                            <img
-                                                    src="<?php echo get_template_directory_uri() ?>/img/icons/chevron-bottom.svg"
-                                                    class="chevron-icon"
-                                                    alt="chevron icon"
-                                            />
-                                            <div class="options">
-                                                <div class="option">Маленький</div>
-                                                <div class="option">Средний</div>
-                                                <div class="option">Большой</div>
-                                            </div>
-                                        </div>
-                                        <input
-                                                type="text"
-                                                class="form__input"
-                                                placeholder="Ваше имя"
-                                        />
-                                        <input
-                                                type="phone"
-                                                class="form__input"
-                                                placeholder="Телефон"
-                                        />
-                                        <button
-                                                type="submit"
-                                                class="calc-btn__small"
-                                                style="width: 100%"
-                                        >
-                                            Отправить
-                                        </button>
-                                    </form>
                                     <div class="form__agreement">
                                         Нажимая на кнопку, я соглашаюсь на
                                         <a href="#" class="form__agreement-link"
@@ -1076,34 +967,29 @@ Template Name: main page
                 <div class="consultation__body form">
                     <div class="form__inner">
                         <div class="form__body">
-                            <h5 class="form__title"> <?php the_field('individual_consultation'); ?></h5>
-
-                            <p class="form__text"><?php the_field('description_consultation'); ?>
-
+                            <h5 class="form__title">
+                                <?php the_field('individual_consultation'); ?>
+                            </h5>
+                            <p class="form__text">
+                                <?php the_field('description_consultation'); ?>
                             </p>
-                            <form class="form__form form__form">
-                                <input
-                                        type="text"
-                                        class="form__input"
-                                        placeholder="Ім'я"
-                                />
-                                <input
-                                        type="phone"
-                                        class="form__input"
-                                        placeholder="+38 (0__) __-__-__*"
-                                />
-                                <textarea
-                                        class="form__textarea"
-                                        placeholder="Опишіть ваше бажання"
-                                ></textarea>
-                                <button
-                                        type="submit"
-                                        class="calc-btn__small"
-                                        style="width: 100%"
-                                >
-                                    <?php the_field('consultation_button'); ?>
-                                </button>
-                            </form>
+                            <?php echo do_shortcode('[contact-form-7 id="13663e7" title="Индивидуальная консультация"]') ?>
+<!--                            <form class="form__form form__form">-->
+<!--                                <input-->
+<!--                                        type="text"-->
+<!--                                        class="form__input"-->
+<!--                                        placeholder="Ім'я"-->
+<!--                                />-->
+<!--                                <input-->
+<!--                                        type="phone"-->
+<!--                                        class="form__input"-->
+<!--                                        placeholder="+38 (0__) __-__-__*"-->
+<!--                                />-->
+<!--                                <textarea-->
+<!--                                        class="form__textarea"-->
+<!--                                        placeholder="Опишіть ваше бажання"-->
+<!--                                ></textarea>-->
+<!--                            </form>-->
                             <div class="form__agreement">
                                 <?php the_field('text_before_processing'); ?>
 
