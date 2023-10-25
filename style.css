@@ -1274,6 +1274,7 @@ main {
     font-weight: 600;
     color: #000;
     text-decoration-line: underline;
+
 }
 
 .additional__list {
@@ -1286,6 +1287,12 @@ main {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+.additional__item a {
+    transition: ease-in-out all 0.3s;
+}
+.additional__item a:hover .additional__title {
+    text-decoration: none;
 }
 
 @media (max-width: 1124px) {
@@ -1318,6 +1325,12 @@ main {
 
 .calculation {
     padding-top: 80px;
+    position: relative;
+}
+.calculation__author {
+    position: absolute;
+    left: 0;
+    top: -5%;
 }
 
 .calculation__container {

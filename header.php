@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title><?php the_field('meta_tags'); ?></title>
         <meta name="description" content="<?php the_field('description'); ?>"/>
-        <meta name="keywords" content="Ключевики" />
-        <meta name="author" content="Автор" />
+        <meta name="keywords" content="<?php the_field('keywords'); ?>" />
+        <meta name="author" content="<?php the_field('author'); ?>" />
         <meta   charset="<?php bloginfo('charset'); ?>">
         <link
                 rel="stylesheet"
@@ -87,7 +87,7 @@ if (is_user_logged_in()) {
                                 data-da=".header__container,500,2">
                                 <img src="<?php the_field('Contact_phone_image', $front_id); ?>" alt="phone icon" />
                                 <div class="phone-action__body">
-                                    <div class="phone-action__label"> <?php the_field('name_men', $front_id); ?></div>
+                                    <div class="phone-action__label"> <?php the_field('tel_label', $front_id); ?></div>
                                     <a href="tel:<?php the_field('enter_number_link', $front_id); ?>" class="phone-action__number"
                                         ><?php the_field('enter_number_telephone', $front_id); ?></a>
                                 </div>
