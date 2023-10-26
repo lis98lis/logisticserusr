@@ -20,7 +20,7 @@
                 <div class="footer__action-phone phone-action">
                     <img src="<?php the_field('Contact_phone_image', $front_id); ?>" alt="phone icon" />
                     <div class="phone-action__body">
-                        <div class="phone-action__label"> <?php the_field('name_men', $front_id); ?></div>
+                        <div class="phone-action__label"> <?php the_field('tel_label', $front_id); ?></div>
                         <a href="tel:<?php the_field('enter_number_link', $front_id); ?>" class="phone-action__number"
                         ><?php the_field('enter_number_telephone', $front_id); ?></a>
                     </div>
