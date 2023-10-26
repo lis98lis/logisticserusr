@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: test
+Template Name: template
 */
 ?>
 
@@ -23,10 +23,8 @@ Template Name: test
             <?php
             // проверяем есть ли данные в гибком содержании
             if (have_rows('flex-content')):
-
                 // перебираем макеты гибкого содержания
                 while (have_rows('flex-content')) : the_row();
-
                     // проверяем на нужный макет
                     if (get_row_layout() == 'flex-content-title'):?>
                         <div class="page__container-page">
@@ -80,9 +78,9 @@ Template Name: test
                                                 <p class="page__description--bold">
                                                     <?php the_sub_field('subtitle_block_five_template'); ?>
                                                 </p>
-                                                <p class="page__description">
+                                                <div class="page__description">
                                                     <?php the_sub_field('text_block_five_template'); ?>
-                                                </p>
+                                                </div>
                                             </div>
 
                                         <?php endwhile;
@@ -96,9 +94,34 @@ Template Name: test
                     elseif (get_row_layout() == 'flex-tablet'):?>
                         <div class="page__container-page">
                             <div class="page__tables">
-                                <h4 class="page__title--h4"><?php the_sub_field('table_title'); ?></h4>
+                                <h4 class="page__title--h4">
+                                    <?php the_sub_field('table_title'); ?>
+                                </h4>
                                 <table class="page__table">
-                                    <?php the_sub_field('table'); ?>
+                                    <tbody>
+                                    <?php
+                                    // проверяем есть ли в повторителе данные
+                                    if (have_rows('tablet-row')):
+                                    // перебираем данные
+                                    while (have_rows('tablet-row')) : the_row(); ?>
+                                    <tr>
+                                            <?php
+                                            // проверяем есть ли в повторителе данные
+                                            if (have_rows('tablet-item')):
+                                                // перебираем данные
+                                                while (have_rows('tablet-item')) : the_row(); ?>
+                                                    <td><?php the_sub_field('tablet-item-text');?></td>
+                                                <?php endwhile;
+                                            else :
+                                            endif;
+                                            ?>
+                                    </tr>
+
+                                    <?php endwhile;
+                                    else :
+                                    endif;
+                                    ?>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

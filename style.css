@@ -1288,9 +1288,11 @@ main {
     align-items: center;
     gap: 10px;
 }
+
 .additional__item a {
     transition: ease-in-out all 0.3s;
 }
+
 .additional__item a:hover .additional__title {
     text-decoration: none;
 }
@@ -1327,6 +1329,7 @@ main {
     padding-top: 80px;
     position: relative;
 }
+
 .calculation__author {
     position: absolute;
     left: 0;
@@ -2967,7 +2970,7 @@ main {
     margin-bottom: 40px;
 }
 
-.page__title--h1 {
+.page__title--h1 h1 {
     font-size: 50px;
     font-weight: 700;
     color: #1e434c;
@@ -2976,7 +2979,7 @@ main {
     line-height: normal;
 }
 
-.page__title--h2 {
+.page__title--h2 h1, h2, h3 {
     font-size: 44px;
     font-weight: 700;
     color: #1e434c;
@@ -2994,7 +2997,7 @@ main {
     margin-bottom: 20px;
 }
 
-.page__description {
+.page__description p {
     font-size: 15px;
     font-weight: 500;
     color: #1e434c;
@@ -3002,7 +3005,7 @@ main {
     line-height: 150%;
 }
 
-.page__description:not(:last-child) {
+.page__description:not(:last-child) p {
     margin-bottom: 20px;
 }
 
@@ -3038,12 +3041,12 @@ main {
 }
 
 @media (max-width: 768px) {
-    .page__title--h1 {
+    .page__title--h1 h1 {
         font-size: 40px;
         margin-bottom: 30px;
     }
 
-    .page__title--h2 {
+    .page__title--h2 h1, h2, h3 {
         font-size: 36px;
     }
 
@@ -3061,12 +3064,12 @@ main {
 }
 
 @media (max-width: 600px) {
-    .page__title--h1 {
+    .page__title--h1 h1 {
         font-size: 26px;
         margin-bottom: 20px;
     }
 
-    .page__title--h2 {
+    .page__title--h2 h1, h2, h3 {
         font-size: 22px;
     }
 
@@ -3074,7 +3077,7 @@ main {
         margin-bottom: 20px;
     }
 
-    .page__description {
+    .page__description p {
         font-size: 15px;
         line-height: 146.667%;
     }
@@ -3106,7 +3109,7 @@ main {
 
 .page__columns-inner {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
 
     gap: 20px;
 }
@@ -3164,6 +3167,12 @@ main {
 .page__table tr:last-child td {
     border-top: 1px solid #eff3f3;
     border-bottom: 1px solid #eff3f3;
+}
+
+.page__table tr:first-child {
+    background: #eff3f3;
+    color: #9fa8b0;
+
 }
 
 @media (max-width: 600px) {
@@ -3482,6 +3491,7 @@ main {
 .page__info-content {
     padding: 40px 50px 40px 30px;
     border-radius: 10px;
+    width: 100%;
 }
 
 .page__info-descr {
@@ -3576,9 +3586,6 @@ main {
     object-fit: cover;
     height: 360px;
     border-radius: 10px;
-}
-
-.page__description {
 }
 
 .swiper-button-next {
@@ -3980,3 +3987,85 @@ img {
 }
 
 /*-------------------- /FORM ------------------------*/
+
+/*-------------------- Seo text --------------------*/
+.seo-text {
+    margin: 30px 0;
+}
+
+.seo-text__h1 {
+    font-size: 44px;
+}
+
+@media (max-width: 768px) {
+    .seo-text__h1 {
+        font-size: 30px;
+    }
+}
+
+.seo-text__h2, .seo-text__h3 {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .seo-text__h2, .seo-text__h3 {
+        font-size: 18px;
+    }
+}
+
+
+/*-------------------- /Seo text --------------------*/
+
+/*-------------------- 404 not found --------------------*/
+.main__not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.not-found__container {
+    color: #1e434c;
+
+}
+
+.not-found {
+    transition: ease-in-out all 0.3s;
+}
+
+.not-found:hover {
+    transform: scale(1.05);
+}
+
+.not-found__title {
+    font-size: 150px;
+    font-weight: 800;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .not-found__title {
+        font-size: 75px;
+    }
+}
+
+.not-found__subtitle {
+    font-size: 36px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .not-found__subtitle {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .not-found__text {
+        font-size: 12px;
+
+    }
+}
+
+/*-------------------- /404 not found --------------------*/

@@ -1,14 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php if(pll_current_language() == 'uk'){
+    echo "uk-UA";}
+if(pll_current_language() == 'ru'){
+    echo "ru-UA";}
+?>">
     <head>
-        <meta charset="UTF-8" />
+        <meta   charset="<?php bloginfo('charset'); ?>">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title><?php the_field('meta_tags'); ?></title>
         <meta name="description" content="<?php the_field('description'); ?>"/>
         <meta name="keywords" content="<?php the_field('keywords'); ?>" />
         <meta name="author" content="<?php the_field('author'); ?>" />
-        <meta   charset="<?php bloginfo('charset'); ?>">
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="<?php the_field('ogurl');?>" />
+        <meta property="og:type" content="<?php the_field('ogtype');?>" />
+        <meta property="og:title" content="<?php the_field('ogtitle');?>" />
+        <meta property="og:description" content="<?php the_field('ogdescription');?>" />
+        <meta property="og:image" content="<?php the_field('ogimage');?>" />
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="<?php the_field('wittercard');?>" />
+        <meta property="twitter:domain" content="<?php the_field('twitterdomain');?>" />
+        <meta property="twitter:url" content="<?php the_field('twitterurl');?>" />
+        <meta name="twitter:title" content="<?php the_field('twittertitle');?>" />
+        <meta name="twitter:description" content="<?php the_field('twitterdescription');?>" />
+        <meta name="twitter:image" content="<?php the_field('twitterimage');?>" />
+        <meta property="og:image:width" content="<?php the_field('ogimagewidth');?>" />
+        <meta property="og:image:height" content="<?php the_field('ogimageheight');?>" />
         <link
                 rel="stylesheet"
                 href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"

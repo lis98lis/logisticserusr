@@ -18,9 +18,9 @@ Template Name: main page
         <div class="hero__container">
             <div class="hero__body">
                 <div class="hero__content">
-                    <h1 class="hero__title">
+                    <h4 class="hero__title">
                         <?php the_field('main_title'); ?>
-                    </h1>
+                    </h4>
                     <p class="hero__description">
                         <?php the_field('main_subtitle'); ?>
                     </p>
@@ -40,9 +40,9 @@ Template Name: main page
     <section class="transportation">
         <img class="transportation__body-img"  src="<?php echo get_template_directory_uri() ?>/img/transportation/bg.png" alt="bg"/>
         <div class="transportation__decor"></div>
-        <h2 class="transportation__title transportation__container title">
+        <h4 class="transportation__title transportation__container title">
             <?php the_field('shipping_title'); ?>
-        </h2>
+        </h4>
         <div class="transportation__body-bg">
 
             <div class="transportation__container">
@@ -127,10 +127,9 @@ Template Name: main page
             </div>
         </div>
     </section>
-
     <section class="services">
         <div class="services__container">
-            <h2 class="title"> <?php the_field('services_header'); ?></h2>
+            <h4 class="title"> <?php the_field('services_header'); ?></h4>
             <div class="services__body">
                 <?php
                 // проверяем есть ли в повторителе данные
@@ -186,7 +185,7 @@ Template Name: main page
                         <div class="calculation__item" data-tab="1">
                             <div class="form__inner">
                                 <div class="form__body">
-                                    <h3 class="form__title"><?php the_field('Individual_calculation'); ?></h3>
+                                    <h4 class="form__title"><?php the_field('Individual_calculation'); ?></h4>
                                     <p class="form__text"><?php the_field('description_individual_calculation'); ?></p>
                                     <div class="calculation__item-categories">
                                         <button
@@ -280,7 +279,7 @@ Template Name: main page
                         <div class="calculation__item" data-tab="2">
                             <div class="form__inner">
                                 <div class="form__body">
-                                    <h3 class="form__title"><?php the_field('Individual_calculation'); ?></h3>
+                                    <h4 class="form__title"><?php the_field('Individual_calculation'); ?></h4>
                                     <p class="form__text"><?php the_field('description_individual_calculation'); ?></p>
                                     <div class="calculation__item-categories">
                                         <button
@@ -370,7 +369,7 @@ Template Name: main page
                         <div class="calculation__item" data-tab="3">
                             <div class="form__inner">
                                 <div class="form__body">
-                                    <h3 class="form__title"><?php the_field('Individual_calculation'); ?></h3>
+                                    <h4 class="form__title"><?php the_field('Individual_calculation'); ?></h4>
                                     <p class="form__text"><?php the_field('description_individual_calculation'); ?></p>
                                     <div class="calculation__item-categories">
                                         <button
@@ -461,7 +460,7 @@ Template Name: main page
     </section>
     <section class="delivery">
         <div class="delivery__container">
-            <h3 class="title">  <?php the_field('header_delivery_methods'); ?></h3>
+            <h4 class="title">  <?php the_field('header_delivery_methods'); ?></h4>
             <div class="delivery__body">
 
 
@@ -711,6 +710,14 @@ Template Name: main page
             </div>
         </div>
     </section>
+    <section class="seo-text">
+        <div class="seo-text__container">
+            <h1 class="seo-text__h1"><?php the_field('seo_text_h1'); ?></h1>
+            <h2 class="seo-text__h2"><?php the_field('seo_text_h2'); ?></h2>
+            <h3 class="seo-text__h3"><?php the_field('seo_text_h3'); ?></h3>
+        </div>
+    </section>
+
     <!-- <div class="modal" id="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeModalBtn">&times;</span>
