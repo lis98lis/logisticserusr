@@ -245,9 +245,28 @@ main {
     justify-content: space-between;
     gap: 5px;
 }
+.header-logo__wrapper {
+    height: 51px;
+    display: flex;
+
+
+
+}
+.header-logo__wrapper img {
+    height:100%;
+    max-width: 350px;
+    object-fit: contain;
+
+
+}
 
 .header__navigation {
     padding-right: 40px;
+}
+@media (max-width: 500px) {
+    .header__navigation {
+        padding-right: unset;
+    }
 }
 
 @media (max-width: 500px) {
@@ -839,7 +858,7 @@ main {
         bottom: -2px;
         width: 100%;
         background-color: white;
-        overflow: hidden;
+        overflow: visible;
     }
 
     .hero__content {
@@ -849,8 +868,8 @@ main {
         background-color: white;
         height: 100%;
         width: 100%;
-        overflow-y: auto;
         box-sizing: border-box;
+        overflow: visible;
     }
 
     .calc-btn {
