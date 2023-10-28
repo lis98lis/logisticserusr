@@ -14,6 +14,7 @@ Template Name: main page
                 autoplay
                 loop
                 playsinline
+                preload=""
         ></video>
         <div class="hero__container">
             <div class="hero__body">
@@ -38,7 +39,7 @@ Template Name: main page
         </div>
     </section>
     <section class="transportation">
-        <img class="transportation__body-img"  src="<?php echo get_template_directory_uri() ?>/img/transportation/bg.png" alt="bg"/>
+        <img class="transportation__body-img"  src="<?php echo get_template_directory_uri() ?>/img/transportation/bg.webp" alt="bg"/>
         <div class="transportation__decor"></div>
         <h4 class="transportation__title transportation__container title">
             <?php the_field('shipping_title'); ?>
@@ -264,17 +265,17 @@ Template Name: main page
                             </div>
                             <picture>
                                 <source
-                                        srcset="<?php echo get_template_directory_uri() ?>/img/calculation/01.png"
+                                        srcset="<?php echo get_template_directory_uri() ?>/img/calculation/01.webp"
                                         type="image/webp"
                                 />
                                 <img
-                                        src="<?php echo get_template_directory_uri() ?>/img/calculation/01.png"
+                                        src="<?php echo get_template_directory_uri() ?>/img/calculation/01.webp"
                                         class="calculation__item-img calculation__item-img--airplane"
                                         alt="calculation img"
                                 />
                             </picture>
-                            <img src="<?php echo get_template_directory_uri() ?>/img/calculation/cloud1.png" class="calculation__item-img--cloud1" alt="cloud1">
-                            <img src="<?php echo get_template_directory_uri() ?>/img/calculation/cloud2.png" class="calculation__item-img--cloud2" alt="cloud2">
+                            <img src="<?php echo get_template_directory_uri() ?>/img/calculation/cloud1.webp" class="calculation__item-img--cloud1" alt="cloud1">
+                            <img src="<?php echo get_template_directory_uri() ?>/img/calculation/cloud2.webp" class="calculation__item-img--cloud2" alt="cloud2">
                         </div>
                         <div class="calculation__item" data-tab="2">
                             <div class="form__inner">
@@ -357,13 +358,13 @@ Template Name: main page
                                 </div>
                             </div>
                             <picture>
-                                <source srcset="<?php echo get_template_directory_uri() ?>/img/calculation/02.png" type="image/webp" />
-                                <img src="<?php echo get_template_directory_uri() ?>/img/calculation/02.png" class="calculation__item-img calculation__item-img--car" alt="calculation img" />
+                                <source srcset="<?php echo get_template_directory_uri() ?>/img/calculation/02.webp" type="image/webp" />
+                                <img src="<?php echo get_template_directory_uri() ?>/img/calculation/02.webp" class="calculation__item-img calculation__item-img--car" alt="calculation img" />
                             </picture>
                             <div class="road-container">
-                                <img src="<?php echo get_template_directory_uri() ?>/img/calculation/road.png" class="calculation__item-img--road" alt="road" />
-                                <img src="<?php echo get_template_directory_uri() ?>/img/calculation/road.png" class="calculation__item-img--road" alt="road" />
-                                <img src="<?php echo get_template_directory_uri() ?>/img/calculation/road.png" class="calculation__item-img--road" alt="road" />
+                                <img src="<?php echo get_template_directory_uri() ?>/img/calculation/road.webp" class="calculation__item-img--road" alt="road" />
+                                <img src="<?php echo get_template_directory_uri() ?>/img/calculation/road.webp" class="calculation__item-img--road" alt="road" />
+                                <img src="<?php echo get_template_directory_uri() ?>/img/calculation/road.webp" class="calculation__item-img--road" alt="road" />
                             </div>
                         </div>
                         <div class="calculation__item" data-tab="3">
@@ -448,10 +449,10 @@ Template Name: main page
                                 </div>
                             </div>
                             <picture>
-                                <source srcset="<?php echo get_template_directory_uri() ?>/img/calculation/03.png" type="image/webp" />
-                                <img src="<?php echo get_template_directory_uri() ?>/img/calculation/03.png" class="calculation__item-img calculation__item-img--ship" alt="calculation img" />
+                                <source srcset="<?php echo get_template_directory_uri() ?>/img/calculation/03.webp" type="image/webp" />
+                                <img src="<?php echo get_template_directory_uri() ?>/img/calculation/03.webp" class="calculation__item-img calculation__item-img--ship" alt="calculation img" />
                             </picture>
-                            <img src="<?php echo get_template_directory_uri() ?>/img/calculation/waves.png" class="calculation__item-img--waves" alt="waves" />
+                            <img src="<?php echo get_template_directory_uri() ?>/img/calculation/waves.webp" class="calculation__item-img--waves" alt="waves" />
                         </div>
                     </div>
                 </div>
@@ -512,7 +513,6 @@ Template Name: main page
     <section class="info">
         <div class="about">
             <picture>
-                <source srcset="<?php echo get_template_directory_uri(); ?>/img/about/about.webp" type="image/webp"/>
                 <img src="<?php the_field('Image_about_us'); ?>" class="about__img"
                      alt="about img"/>
             </picture>

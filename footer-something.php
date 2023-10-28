@@ -2,9 +2,9 @@
     <?php $front_id = get_option('page_on_front'); ?>
     <div class="footer__container">
         <div class="footer__body">
-            <a class="footer__logo" href="#" data-da=".footer__action-inner,425">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/footer/logo.svg" alt="логотип підвалу"/>
-            </a>
+            <div class="footer__logo header-logo__wrapper" data-da=".footer__action-inner,425">
+                <?php the_custom_logo(); ?>
+            </div>
             <div class="footer__nav">
                 <?php if(pll_current_language() == 'uk'){
                     wp_nav_menu( array(
@@ -79,6 +79,9 @@
             </div>
         </div>
     </div>
+    <h4 class="footer__subtitle">
+        <?php the_field('footer_subtitle', $front_id); ?>
+    </h4>
 </footer>
 
 </div>

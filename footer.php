@@ -2,7 +2,7 @@
     <?php $front_id = get_option('page_on_front'); ?>
     <div class="footer__container">
         <div class="footer__body">
-            <div class="footer__logo" data-da=".footer__action-inner,425">
+            <div class="footer__logo header-logo__wrapper" data-da=".footer__action-inner,425">
                 <?php the_custom_logo(); ?>
             </div>
             <div class="footer__nav">
@@ -28,6 +28,9 @@
             </div>
         </div>
     </div>
+    <h4 class="footer__subtitle">
+        <?php the_field('footer_subtitle', $front_id); ?>
+    </h4>
 </footer>
 
 </div>
