@@ -604,6 +604,9 @@ footer .header-logo__wrapper img {
     color: #000000;
 
 }
+.menu-burger__list .menu li a:hover {
+    color: #943020;
+}
 
 @media (max-width: 1336px) {
     .menu-burger__list .menu {
@@ -1102,7 +1105,6 @@ footer .header-logo__wrapper img {
     .transportation__decor {
         background: lightgray 0% 0% / 100px 100px repeat,
         linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.06) 100%);
-
         -webkit-backdrop-filter: blur(24.46637535095215px);
         backdrop-filter: blur(24.46637535095215px);
     }
@@ -3719,7 +3721,6 @@ footer .header-logo__wrapper img {
         display: flex;
         align-items: center;
         justify-content: center;
-
     > img {
         width: 10px;
     }

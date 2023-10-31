@@ -19,9 +19,9 @@ Template Name: main page
         <div class="hero__container">
             <div class="hero__body">
                 <div class="hero__content">
-                    <h4 class="hero__title">
+                    <p class="hero__title">
                         <?php the_field('main_title'); ?>
-                    </h4>
+                    <p>
                     <p class="hero__description">
                         <?php the_field('main_subtitle'); ?>
                     </p>
@@ -41,9 +41,9 @@ Template Name: main page
     <section class="transportation">
         <img class="transportation__body-img"  src="<?php echo get_template_directory_uri() ?>/img/transportation/bg.webp" alt="bg"/>
         <div class="transportation__decor"></div>
-        <h4 class="transportation__title transportation__container title">
+        <p class="transportation__title transportation__container title">
             <?php the_field('shipping_title'); ?>
-        </h4>
+        <p>
         <div class="transportation__body-bg">
 
             <div class="transportation__container">
@@ -130,7 +130,7 @@ Template Name: main page
     </section>
     <section class="services">
         <div class="services__container">
-            <h4 class="title"> <?php the_field('services_header'); ?></h4>
+            <p class="title"> <?php the_field('services_header'); ?><p>
             <div class="services__body">
                 <?php
                 // проверяем есть ли в повторителе данные
@@ -140,12 +140,14 @@ Template Name: main page
                         <div class="services__item item-services">
                             <div class="item-services__top">
                                 <div class="item-services__title"><?php the_sub_field('name_service'); ?></div>
-                                <a href="<?php the_field('specify_service_link')?>"
-                                   class="item-services__link"
-                                ><?php the_sub_field('service_button'); ?>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/icons/arrow-right.svg"
-                                         alt="icon-right"
-                                    /></a>
+                                <?php if(get_sub_field('service_button')){ ?>
+                                    <a href="<?php the_field('specify_service_link')?>"
+                                       class="item-services__link">
+                                        <?php the_sub_field('service_button'); ?>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/img/icons/arrow-right.svg"
+                                             alt="icon-right"/>
+                                    </a>
+                                <?} else{};?>
                             </div>
                             <div class="item-services__img">
                                 <img src="<?php the_sub_field('Image_services'); ?>" alt="img"/>
@@ -176,7 +178,6 @@ Template Name: main page
                     else :
                     endif;
                     ?>
-
                 </ul>
             </div>
             <div class="calculation">
@@ -186,7 +187,7 @@ Template Name: main page
                         <div class="calculation__item" data-tab="1">
                             <div class="form__inner">
                                 <div class="form__body">
-                                    <h4 class="form__title"><?php the_field('Individual_calculation'); ?></h4>
+                                    <p class="form__title"><?php the_field('Individual_calculation'); ?><p>
                                     <p class="form__text"><?php the_field('description_individual_calculation'); ?></p>
                                     <div class="calculation__item-categories">
                                         <button
@@ -205,7 +206,7 @@ Template Name: main page
                                                         fill="white"
                                                 />
                                             </svg>
-                                            Самолет
+                                            Літак
                                         </button>
                                         <button
                                                 class="calculation__item-category-btn"
@@ -247,19 +248,12 @@ Template Name: main page
                                                         fill="black"
                                                 />
                                             </svg>
-                                            Корабль
+                                            Корабель
                                         </button>
                                     </div>
                                     <?php echo do_shortcode('[contact-form-7 id="5979a72" title="Индивидуальный расчёт стоимости - Самолёт"]') ?>
                                     <div class="form__agreement">
-                                        Нажимая на кнопку, я соглашаюсь на
-                                        <a href="#" class="form__agreement-link"
-                                        >обработку персональных данных</a
-                                        >
-                                        и с
-                                        <a href="#" class="form__agreement-link"
-                                        >правилами пользования Платформой</a
-                                        >
+                                        <?php the_field('text_before_processing'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -280,7 +274,7 @@ Template Name: main page
                         <div class="calculation__item" data-tab="2">
                             <div class="form__inner">
                                 <div class="form__body">
-                                    <h4 class="form__title"><?php the_field('Individual_calculation'); ?></h4>
+                                    <p class="form__title"><?php the_field('Individual_calculation'); ?><p>
                                     <p class="form__text"><?php the_field('description_individual_calculation'); ?></p>
                                     <div class="calculation__item-categories">
                                         <button
@@ -346,14 +340,7 @@ Template Name: main page
                                     </div>
                                     <?php echo do_shortcode('[contact-form-7 id="00b79a6" title="Индивидуальный расчёт стоимости - Фура"]') ?>
                                     <div class="form__agreement">
-                                        Нажимая на кнопку, я соглашаюсь на
-                                        <a href="#" class="form__agreement-link"
-                                        >обработку персональных данных</a
-                                        >
-                                        и с
-                                        <a href="#" class="form__agreement-link"
-                                        >правилами пользования Платформой</a
-                                        >
+                                        <?php the_field('text_before_processing'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -370,7 +357,7 @@ Template Name: main page
                         <div class="calculation__item" data-tab="3">
                             <div class="form__inner">
                                 <div class="form__body">
-                                    <h4 class="form__title"><?php the_field('Individual_calculation'); ?></h4>
+                                    <p class="form__title"><?php the_field('Individual_calculation'); ?><p>
                                     <p class="form__text"><?php the_field('description_individual_calculation'); ?></p>
                                     <div class="calculation__item-categories">
                                         <button
@@ -437,14 +424,7 @@ Template Name: main page
                                     <?php echo do_shortcode('[contact-form-7 id="6de0ded" title="Индивидуальный расчёт стоимости - Корабль"]') ?>
 
                                     <div class="form__agreement">
-                                        Нажимая на кнопку, я соглашаюсь на
-                                        <a href="#" class="form__agreement-link"
-                                        >обработку персональных данных</a
-                                        >
-                                        и с
-                                        <a href="#" class="form__agreement-link"
-                                        >правилами пользования Платформой</a
-                                        >
+                                        <?php the_field('text_before_processing'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -461,7 +441,7 @@ Template Name: main page
     </section>
     <section class="delivery">
         <div class="delivery__container">
-            <h4 class="title">  <?php the_field('header_delivery_methods'); ?></h4>
+            <p class="title">  <?php the_field('header_delivery_methods'); ?><p>
             <div class="delivery__body">
 
 
@@ -517,7 +497,7 @@ Template Name: main page
                      alt="about img"/>
             </picture>
             <div class="about__container about__body">
-                <h4 class="about__title"> <?php the_field('headline_about_us'); ?></h4>
+                <p class="about__title"> <?php the_field('headline_about_us'); ?><p>
                 <p class="about__description">
                     <?php  the_field('description_about_us'); ?>
                 </p>
@@ -572,7 +552,7 @@ Template Name: main page
             <div class="advantages__bg"></div>
             <div class="advantages__container">
                 <div class="advantages__info">
-                    <h5 class="title"> <?php the_field('title_advantages'); ?></h5>
+                    <p class="title"> <?php the_field('title_advantages'); ?><p>
                     <ul class="advantages__list">
                         <?php
                         // проверяем есть ли в повторителе данные
@@ -623,16 +603,15 @@ Template Name: main page
                 <div class="consultation__body form">
                     <div class="form__inner">
                         <div class="form__body">
-                            <h5 class="form__title">
+                            <p class="form__title">
                                 <?php the_field('individual_consultation'); ?>
-                            </h5>
+                            <p>
                             <p class="form__text">
                                 <?php the_field('description_consultation'); ?>
                             </p>
                             <?php echo do_shortcode('[contact-form-7 id="13663e7" title="Индивидуальная консультация"]') ?>
                             <div class="form__agreement">
                                 <?php the_field('text_before_processing'); ?>
-
                             </div>
                         </div>
                     </div>
@@ -643,7 +622,7 @@ Template Name: main page
     </section>
     <section class="question-block">
         <div class="question-block__container">
-            <h5 class="title"> <?php the_field('title_answers_questions'); ?></h5>
+            <p class="title"> <?php the_field('title_answers_questions'); ?><p>
             <div class="question-block__inner">
                 <div class="question-block__spollers">
 
@@ -686,7 +665,7 @@ Template Name: main page
                 ></iframe>
             </div>
             <div class="contacts__info">
-                <h5 class="title"> <?php the_field('contact'); ?></h5>
+                <p class="title"> <?php the_field('contact'); ?><p>
                 <div class="contacts__info-body">
                     <div class="contacts__info-item contacts-item">
                         <span class="contacts-item__label"><?php the_field('telephone_name'); ?></span>
@@ -726,9 +705,9 @@ Template Name: main page
                     <div class="modal__item" data-tab="1">
                         <div class="form__inner">
                             <div class="form__body">
-                                <h5 class="form__title">
+                                <p class="form__title">
                                     Индивидуальный расчет стоимости
-                                </h5>
+                                <p>
 
                                 <p class="form__text">
                                     Если вы не нашли подходящего для вас решения, наши
@@ -868,9 +847,9 @@ Template Name: main page
                     <div class="modal__item" data-tab="2">
                         <div class="form__inner">
                             <div class="form__body">
-                                <h5 class="form__title">
+                                <p class="form__title">
                                     Индивидуальный расчет стоимости
-                                </h5>
+                                <p>
 
                                 <p class="form__text">
                                     Если вы не нашли подходящего для вас решения, наши
@@ -1009,9 +988,9 @@ Template Name: main page
                     <div class="modal__item" data-tab="3">
                         <div class="form__inner">
                             <div class="form__body">
-                                <h5 class="form__title">
+                                <p class="form__title">
                                     Индивидуальный расчет стоимости
-                                </h5>
+                                <p>
 
                                 <p class="form__text">
                                     Если вы не нашли подходящего для вас решения, наши
